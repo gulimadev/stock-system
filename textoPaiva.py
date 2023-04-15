@@ -1,1 +1,0 @@
-print('Boa noite, cornos!')

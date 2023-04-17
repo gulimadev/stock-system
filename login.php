@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Se o usuário e senha estão corretos, cria uma sessão e redireciona para a página principal
         $_SESSION['username'] = $usuario;
-        header("Location: index.php");
+        header("Location: admin.php");
     } else {
         // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
         $mensagem = "Usuário ou senha incorretos.";

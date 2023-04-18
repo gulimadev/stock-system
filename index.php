@@ -6,9 +6,6 @@
 </head>
 <body>
 	<header>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- add bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 		<h1>Minha Loja de Alimentos</h1>
 		<nav>
 			<ul>
@@ -20,31 +17,36 @@
 	</header>
 
 	<main>
-	<h2>Produtos em Destaque</h2>
-	<div class="col-md-4 produto">
-		<img src="img/arroz.png" alt="Arroz">
-		<h3>Arroz Branco</h3>
-		<p>R$ 5,00</p>
-		<a href="#" class="botao-comprar">Comprar</a>
-	</div>
-	<div class="col-md-4 produto">
-		<img src="img/feijao.jpg" alt="Feijão" style="max-height: 400px;">
-		<h3>Feijão Carioca</h3>
-		<p>R$ 6,00</p>
-		<a href="#" class="botao-comprar">Comprar</a>
-	</div>
-	<div class="col-md-4 produto">
-		<img src="img/acucar.webp" alt="Açúcar">
-		<h3>Açúcar Refinado</h3>
-		<p>R$ 4,00</p>
-		<a href="#" class="botao-comprar">Comprar</a>
-	</div>
+  <h2>Produtos em Destaque</h2>
+  <div class="row">
+    <?php
+      // Conecta ao banco de dados
+      require_once('dbconfig.php');
+      $conexao = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+      // Seleciona todos os produtos
+      $sql = "SELECT * FROM produtos";
+      $resultado = mysqli_query($conexao, $sql);
+
+      // Loop para exibir as informações de cada produto
+      while ($produto = mysqli_fetch_assoc($resultado)) {
+        echo '<div class="col-md-4 produto">';
+        echo '<img src="img/' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
+        echo '<h3>' . $produto['nome'] . '</h3>';
+        echo '<p>R$ ' . $produto['preco'] . '</p>';
+        echo '<a href="#" class="botao-comprar">Comprar</a>';
+        echo '</div>';
+      }
+
+      // Fecha a conexão com o banco de dados
+      mysqli_close($conexao);
+    ?>
+  </div>
 </main>
+
 
 	<footer>
 		<p>&copy; 2023 Minha Loja de Alimentos</p>
 	</footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

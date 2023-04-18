@@ -1,9 +1,10 @@
 <?php
 require_once('functions.php');
+require_once('dbconfig.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($_POST['acao'] === 'adicionar') {
-    adicionarProduto($_POST['nome'], $_POST['preco']);
+    adicionarProduto($_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade']);
   } else if ($_POST['acao'] === 'deletar') {
     deletarProduto($_POST['id']);
   } else if ($_POST['acao'] === 'atualizar') {
@@ -19,6 +20,10 @@ $produtos = listarProdutos();
   <input type="hidden" name="acao" value="adicionar">
   <input type="text" name="nome" placeholder="Nome">
   <input type="number" name="preco" placeholder="Preço">
+  <input type="file" name="imagem">
+<button type="submit">Adicionar</button>
+
+  <input type="number" name="quantidade" placeholder="Quantidade">
   <button type="submit">Adicionar</button>
 </form>
 
@@ -31,6 +36,8 @@ $produtos = listarProdutos();
       <th>ID</th>
       <th>Nome</th>
       <th>Preço</th>
+      <th>Imagem</th>
+      <th>Quantidade</th>
       <th>Ações</th>
     </tr>
   </thead>
@@ -40,6 +47,8 @@ $produtos = listarProdutos();
       <td><?= $produto['id'] ?></td>
       <td><?= $produto['nome'] ?></td>
       <td><?= $produto['preco'] ?></td>
+      <td><?= $produto['imagem'] ?></td>
+      <td><?= $produto['quantidade'] ?></td>
       <td>
         <form method="post">
           <input type="hidden" name="acao" value="deletar">
@@ -57,6 +66,6 @@ $produtos = listarProdutos();
     </tr>
     <?php endforeach ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </tbody>
 </table>

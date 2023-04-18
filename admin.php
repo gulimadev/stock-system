@@ -14,14 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $produtos = listarProdutos();
 ?>
-
+<!-- add bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css"> 
 <!-- Formulário para adicionar um produto -->
 <form method="post">
   <input type="hidden" name="acao" value="adicionar">
   <input type="text" name="nome" placeholder="Nome">
   <input type="number" name="preco" placeholder="Preço">
   <input type="file" name="imagem">
-<button type="submit">Adicionar</button>
 
   <input type="number" name="quantidade" placeholder="Quantidade">
   <button type="submit">Adicionar</button>
@@ -30,9 +31,7 @@ $produtos = listarProdutos();
 <!-- Tabela com a lista de produtos -->
 <table>
   <thead>
-    <!-- add bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <tr>
+     <tr>
       <th>ID</th>
       <th>Nome</th>
       <th>Preço</th>
@@ -56,12 +55,15 @@ $produtos = listarProdutos();
           <button type="submit">Deletar</button>
         </form>
         <form method="post">
-          <input type="hidden" name="acao" value="atualizar">
-          <input type="hidden" name="id" value="<?= $produto['id'] ?>">
-          <input type="text" name="nome" placeholder="Novo nome">
-          <input type="number" name="preco" placeholder="Novo preço">
-          <button type="submit">Atualizar</button>
-        </form>
+  <input type="hidden" name="acao" value="atualizar">
+  <input type="hidden" name="id" value="<?= $produto['id'] ?>">
+  <input type="text" name="nome" placeholder="Novo nome">
+  <input type="number" name="preco" placeholder="Novo preço">
+  <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">
+  <input type="hidden" name="quantidade" value="<?= $produto['quantidade'] ?>">
+  <button type="submit">Atualizar</button>
+</form>
+
       </td>
     </tr>
     <?php endforeach ?>

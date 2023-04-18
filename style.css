@@ -135,3 +135,89 @@ body {
   }
   
   
+  /* Estilizando o formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="file"],
+  form button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Estilizando a tabela */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  thead th {
+    padding: 10px;
+  }
+  
+  tbody td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  tbody td img {
+    max-width: 100px;
+  }
+  
+  tbody td button[type="submit"] {
+    background-color: #dc3545;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  tbody td form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  tbody td form input[type="text"],
+  tbody td form input[type="number"],
+  tbody td form input[type="hidden"],
+  tbody td form button[type="submit"] {
+    padding: 5px;
+    margin-right: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  tbody td form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

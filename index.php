@@ -3,6 +3,8 @@
 <head>
 	<title>Minha Loja de Alimentos</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <!-- add bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 	<header>
@@ -48,5 +50,8 @@
 	<footer>
 		<p>&copy; 2023 Minha Loja de Alimentos</p>
 	</footer>
+    <!-- add bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

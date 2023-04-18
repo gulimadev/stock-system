@@ -20,26 +20,26 @@
 	</header>
 
 	<main>
-		<h2>Produtos em Destaque</h2>
-		<div class="col-md-4 produto">
-			<img src="img/arroz.png" alt="Arroz">
-			<h3>Arroz Branco</h3>
-			<p>R$ 5,00</p>
-			<a href="#" class="botao-comprar">Comprar</a>
-		</div>
-		<div class="col-md-4 produto">
-			<img src="img/feijao.jpg" alt="Feijão">
-			<h3>Feijão Carioca</h3>
-			<p>R$ 6,00</p>
-			<a href="#" class="botao-comprar">Comprar</a>
-		</div>
-		<div class="col-md-4 produto">
-			<img src="img/acucar.webp" alt="Açúcar">
-			<h3>Açúcar Refinado</h3>
-			<p>R$ 4,00</p>
-			<a href="#" class="botao-comprar">Comprar</a>
-		</div>
-	</main>
+	<h2>Produtos em Destaque</h2>
+	<div class="col-md-4 produto">
+		<img src="img/arroz.png" alt="Arroz">
+		<h3>Arroz Branco</h3>
+		<p>R$ 5,00</p>
+		<a href="#" class="botao-comprar">Comprar</a>
+	</div>
+	<div class="col-md-4 produto">
+		<img src="img/feijao.jpg" alt="Feijão" style="max-height: 400px;">
+		<h3>Feijão Carioca</h3>
+		<p>R$ 6,00</p>
+		<a href="#" class="botao-comprar">Comprar</a>
+	</div>
+	<div class="col-md-4 produto">
+		<img src="img/acucar.webp" alt="Açúcar">
+		<h3>Açúcar Refinado</h3>
+		<p>R$ 4,00</p>
+		<a href="#" class="botao-comprar">Comprar</a>
+	</div>
+</main>
 
 	<footer>
 		<p>&copy; 2023 Minha Loja de Alimentos</p>

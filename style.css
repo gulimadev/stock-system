@@ -134,3 +134,9 @@ body {
     font-size: 14px;
   }
   
+
+  .produto img {
+    max-width: 100%;
+    height: auto;
+  }
+  

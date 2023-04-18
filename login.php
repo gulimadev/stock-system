@@ -41,6 +41,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
 	<title>Tela de Login</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <!-- add bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 </head>
 <body>
 	<div class="login-form">
@@ -60,5 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			<div class="error"><?php echo $mensagem; ?></div>
 		<?php } ?>
 	</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

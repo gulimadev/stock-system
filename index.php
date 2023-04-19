@@ -6,15 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<header>
 		<h1>Minha Loja de Alimentos</h1>
-		<nav>
-			<ul>
-				<li><a href="#">Produtos</a></li>
-				<li><a href="#">Sobre Nós</a></li>
-				<li><a href="#">Contato</a></li>
+		<nav class="navbar-nav">
+			<ul class="list-group-flush">
+				<li class="nav-item"><a class="dropdown-item" href="#">Produtos</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="#">Sobre Nós</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="#">Contato</a></li>
 			</ul>
 		</nav>
 	</header>

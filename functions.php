@@ -36,7 +36,10 @@ function listarProdutos() {
   $result = mysqli_query($conn, $query);
   $produtos = array();
   while ($row = mysqli_fetch_assoc($result)) {
-    $produtos[] = $row;
+   
+      $produtos[] = $row;
+    
+    
   }
   mysqli_close($conn);
   return $produtos;

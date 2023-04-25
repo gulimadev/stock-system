@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $produtos = listarProdutos();
+
 ?>
 <!-- add bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -46,7 +47,7 @@ $produtos = listarProdutos();
       <td><?= $produto['id'] ?></td>
       <td><?= $produto['nome'] ?></td>
       <td><?= $produto['preco'] ?></td>
-      <td><?= $produto['imagem'] ?></td>
+      <td ><img src="<?= $produto['imagem'] ?>" alt="" style="max-width: 450px; max-height: 150px;"></td>
       <td><?= $produto['quantidade'] ?></td>
       <td>
         <form method="post">

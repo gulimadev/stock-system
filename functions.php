@@ -2,65 +2,82 @@
 require_once('dbconfig.php');
 
 function adicionarProduto($nome, $preco, $imagem, $quantidade) {
-    $conexao = obterConexao();
+  include('dbconfig.php');
+  $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
+   // $conexao = obterConexao();
     $nome = mysqli_real_escape_string($conexao, $nome);
     $preco = mysqli_real_escape_string($conexao, $preco);
     $imagem = mysqli_real_escape_string($conexao, $imagem);
     $quantidade = mysqli_real_escape_string($conexao, $quantidade);
   
-    $query = "INSERT INTO produtos (nome, preco, imagem, quantidade) VALUES ('$nome', '$preco', '$imagem', '$quantidade')";
+    $query = "INSERT INTO PRODUTOS (nome, preco, imagem, quantidade) VALUES ('$nome', '$preco',CONCAT( 'img/','$imagem'), '$quantidade')";
     $resultado = mysqli_query($conexao, $query);
   
-    fecharConexao($conexao);
+    $conexao->close();
   
     return $resultado;
   }
   
   function fecharConexao($conexao) {
-    mysqli_close($conexao);
+    require_once('dbconfig.php');
+    $conexao->close();
 }
 
   function obterConexao() {
-    require_once 'dbconfig.php';
-    $conexao = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    if (mysqli_connect_errno()) {
-      echo 'Não foi possível conectar ao banco de dados: ' . mysqli_connect_error();
-      exit;
+     include('dbconfig.php');
+     $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
+    if ($conexao->connect_error){
+      die("falha na comexão: ".$conexao->connect_error);}
+    else {
+    
     }
+    $conexao->close();
     return $conexao;
   }
   
 function listarProdutos() {
-  $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-  $query = "SELECT * FROM produtos";
-  $result = mysqli_query($conn, $query);
+  include('dbconfig.php');
+  $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
+  if ($conn->connect_error){
+    die("falha na comexão: ".$conn->connect_error);}else {
+      # code...
+    }
+  $sql = "SELECT * FROM PRODUTOS";
+  $result = $conn->query($sql);
   $produtos = array();
   while ($row = mysqli_fetch_assoc($result)) {
-    $produtos[] = $row;
+   
+      $produtos[] = $row;
+    
+   
   }
-  mysqli_close($conn);
+  $conn->close();
   return $produtos;
 }
 
 function deletarProduto($id) {
-  $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+  include('dbconfig.php');
+  $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   $id = mysqli_real_escape_string($conn, $id);
-  $query = "DELETE FROM produtos WHERE id = '$id'";
+  $query = "DELETE  FROM PRODUTOS WHERE id = '$id'";
   mysqli_query($conn, $query);
   mysqli_close($conn);
 }
 
-function atualizarProduto($id, $nome, $preco, $imagem, $quantidade) {
-    $conexao = obterConexao();
-    $nome = mysqli_real_escape_string($conexao, $nome);
-    $preco = mysqli_real_escape_string($conexao, $preco);
-    $imagem = mysqli_real_escape_string($conexao, $imagem);
+function atualizarProduto($id, $nome, $preco, $imagem, $quantidade) { 
+  include('dbconfig.php');
+  $ArrayProdutos=listarProdutos();
+  $conexao  = new mysqli($servidor, $usuario, $senha, $bancodedados);
+    $id         = mysqli_real_escape_string($conexao, $id); 
+    $nome       = mysqli_real_escape_string($conexao, $nome);
+    $preco      = mysqli_real_escape_string($conexao, $preco);
+    $imagem     = mysqli_real_escape_string($conexao, $imagem);
     $quantidade = mysqli_real_escape_string($conexao, $quantidade);
   
-    $query = "UPDATE produtos SET nome='$nome', preco='$preco', imagem='$imagem', quantidade='$quantidade' WHERE id=$id";
-    $resultado = mysqli_query($conexao, $query);
+    $query = "UPDATE PRODUTOS SET nome='$nome', preco='$preco', imagem='$imagem', quantidade='$quantidade' WHERE id=$id";
+    $resultado = $conexao->query($query);
   
-    fecharConexao($conexao);
+    $conexao->close();
   
     return $resultado;
   }

@@ -24,10 +24,10 @@
     <?php
       // Conecta ao banco de dados
       require_once('dbconfig.php');
-      $conexao = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+      $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
 
       // Seleciona todos os produtos
-      $sql = "SELECT * FROM produtos";
+      $sql = "SELECT * FROM PRODUTOS";
       $resultado = mysqli_query($conexao, $sql);
 
       // Loop para exibir as informações de cada produto

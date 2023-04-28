@@ -13,10 +13,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbname = "u865174000_uniasselvi";
  
     $conn = new mysqli($servername, $username, $password, $dbname);
-    mysql_query("SET NAMES 'utf8'");
-   mysql_query('SET character_set_connection=utf8');
-   mysql_query('SET character_set_client=utf8');
-   mysql_query('SET character_set_results=utf8');
+//    mysql_query("SET NAMES 'utf8'");
+//    mysql_query('SET character_set_connection=utf8');
+//    mysql_query('SET character_set_client=utf8');
+//    mysql_query('SET character_set_results=utf8');
     
     // Verifica se a conexão foi bem sucedida
     if ($conn->connect_error) {
@@ -45,11 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html>
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-=======
 <meta charset="UTF-8">
->>>>>>> Renato
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tela de Login</title>

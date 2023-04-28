@@ -35,7 +35,7 @@
       // Loop para exibir as informações de cada produto
       while ($produto = mysqli_fetch_assoc($resultado)) {
         echo '<div class="col-md-4 produto">';
-        echo '<img src="img/' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
+        echo '<img src="' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
         echo '<h3>' . $produto['nome'] . '</h3>';
         echo '<p>R$ ' . $produto['preco'] . '</p>';
         echo '<a href="#" class="botao-comprar">Comprar</a>';

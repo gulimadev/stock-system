@@ -53,8 +53,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="login-form">
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="login-form w-25 mt-5">
             <h2>Tela de Login</h2>
             <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">

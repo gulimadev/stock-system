@@ -41,7 +41,7 @@ $produtos = listarProdutos();
   <thead>
      <tr>
       <th>ID</th>
-      <th>Nome</th>
+      <th>Descrição</th>
       <th>Preço</th>
       <th>Imagem</th>
       <th>Quantidade</th>
@@ -58,19 +58,20 @@ $produtos = listarProdutos();
       <td><?= $produto['quantidade'] ?></td>
       <td>
         <form method="post">
-          <input type="hidden" name="acao" value="deletar">
+          <input type="hidden" name="acao" value="atualizar">
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">
-          <button type="submit">Deletar</button>
+          <input type="text" name="nome" placeholder="Novo nome">
+          <input type="number" step="any"  name="preco" placeholder="Novo preço">
+          <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">
+          <input type="hidden" name="quantidade" value="<?= $produto['quantidade'] ?>">
+          <button type="submit" class="btn btn-success">Atualizar</button>
         </form>
         <form method="post">
-  <input type="hidden" name="acao" value="atualizar">
-  <input type="hidden" name="id" value="<?= $produto['id'] ?>">
-  <input type="text" name="nome" placeholder="Novo nome">
-  <input type="number" step="any"  name="preco" placeholder="Novo preço">
-  <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">
-  <input type="hidden" name="quantidade" value="<?= $produto['quantidade'] ?>">
-  <button type="submit">Atualizar</button>
-</form>
+          <input type="hidden" name="acao" value="deletar">
+          <input type="hidden" name="id" value="<?= $produto['id'] ?>">
+          <button type="submit" class="btn btn-danger">Deletar</button>
+        </form>
+       
 
           </td>
         </tr>

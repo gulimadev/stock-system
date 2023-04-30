@@ -62,8 +62,11 @@ $produtos = listarProdutos();
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">
           <input type="text" name="nome" placeholder="Novo nome">
           <input type="number" step="any"  name="preco" placeholder="Novo preço">
+          <input type="number" name="quantidade" placeholder="Nova quantidade">
+
+
           <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">
-          <input type="hidden" name="quantidade" value="<?= $produto['quantidade'] ?>">
+          <input type="hidden" name="nquantidade" value="<?= $produto['quantidade'] ?>">
           <button type="submit" class="btn btn-success">Atualizar</button>
         </form>
         <form method="post">

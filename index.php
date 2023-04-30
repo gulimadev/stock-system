@@ -14,9 +14,9 @@
 		<h1>Minha Loja de Alimentos</h1>
 		<nav class="navbar-nav">
 			<ul class="list-group-flush">
-				<li class="nav-item"><a class="dropdown-item" href="#">Produtos</a></li>
-				<li class="nav-item"><a class="dropdown-item" href="#">Sobre Nós</a></li>
-				<li class="nav-item"><a class="dropdown-item" href="#">Contato</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="index.php">Produtos</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="sobre.php">Sobre Nós</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="sobre.php">Contato</a></li>
 			</ul>
 		</nav>
 	</header>

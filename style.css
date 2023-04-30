@@ -8,6 +8,21 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+.carousel.slide div{
+
+  max-height: 20%; /* Defina a altura máxima desejada */
+    width: auto; /* Mantém a proporção da imagem ao redimensionar */
+
+  
+
+}
+
+
+.carousel.slide img {
+  max-height: 20%; /* Defina a altura máxima desejada */
+  width: auto; /* Mantém a proporção da imagem ao redimensionar */
+  object-fit: cover; /* Garante que a imagem cubra a área disponível */
+}
 .login-form h2 {
     text-align: center;
     margin-bottom: 20px;

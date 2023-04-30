@@ -13,10 +13,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbname = "u865174000_uniasselvi";
  
     $conn = new mysqli($servername, $username, $password, $dbname);
-    mysql_query("SET NAMES 'utf8'");
-   mysql_query('SET character_set_connection=utf8');
-   mysql_query('SET character_set_client=utf8');
-   mysql_query('SET character_set_results=utf8');
+//    mysql_query("SET NAMES 'utf8'");
+//    mysql_query('SET character_set_connection=utf8');
+//    mysql_query('SET character_set_client=utf8');
+//    mysql_query('SET character_set_results=utf8');
     
     // Verifica se a conexão foi bem sucedida
     if ($conn->connect_error) {
@@ -49,30 +49,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tela de Login</title>
+    <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-    <!-- add bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
 </head>
 <body>
-	<div class="login-form">
-		<h2>Tela de Login</h2>
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-			<div class="form-group">
-				<label>Nome de Usuário:</label>
-				<input type="text" name="username" required>
-			</div>    
-			<div class="form-group">
-				<label>Senha:</label>
-				<input type="password" name="password" required>
-			</div>
-			<button type="submit">Entrar</button>
-		</form>
-		<?php if(isset($mensagem)) { ?>
-			<div class="error"><?php echo $mensagem; ?></div>
-		<?php } ?>
-	</div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <div class="login-form w-25 mt-5">
+            <h2>Tela de Login</h2>
+            <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group">
+                    <label class="col-form-label">Nome de Usuário:</label>
+                    <input class="form-control" type="text" name="username" required>
+                </div>    
+                <div class="form-group">
+                    <label class="col-form-label">Senha:</label>
+                    <input class="form-control" type="password" name="password" required>
+                </div>
+                <button class="btn btn-primary btn-sm mt-3" type="submit">Entrar</button>
+            </form>
+            <?php if(isset($mensagem)) { ?>
+                <div class="error"><?php echo $mensagem; ?></div>
+            <?php } ?>
+        </div>
+    </div>
 </body>
 </html>

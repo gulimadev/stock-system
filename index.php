@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Minha Loja de Alimentos</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-    <!-- add bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<header>
 		<h1>Minha Loja de Alimentos</h1>
-		<nav>
-			<ul>
-				<li><a href="#">Produtos</a></li>
-				<li><a href="#">Sobre Nós</a></li>
-				<li><a href="#">Contato</a></li>
+		<nav class="navbar-nav">
+			<ul class="list-group-flush">
+				<li class="nav-item"><a class="dropdown-item" href="#">Produtos</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="#">Sobre Nós</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="#">Contato</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -32,7 +34,7 @@
 
       // Loop para exibir as informações de cada produto
       while ($produto = mysqli_fetch_assoc($resultado)) {
-        echo '<div class="col-md-2 produto">';
+        echo '<div class="col-md-4 produto">';
         echo '<img src="' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
         echo '<h3>' . $produto['nome'] . '</h3>';
         echo '<p>R$ ' . $produto['preco'] . '</p>';
@@ -50,8 +52,5 @@
 	<footer>
 		<p>&copy; 2023 Minha Loja de Alimentos</p>
 	</footer>
-    <!-- add bootstrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

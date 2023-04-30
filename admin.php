@@ -16,8 +16,15 @@ $produtos = listarProdutos();
 
 ?>
 <!-- add bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="style.css"> 
+<!DOCTYPE html>
+<html lang="pt-br">  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head> 
 <!-- Formulário para adicionar um produto -->
 <form method="POST">
   <input type="hidden" name="acao" value="adicionar">
@@ -25,16 +32,16 @@ $produtos = listarProdutos();
   <input type="number" step="any" name="preco" placeholder="Preço">
   <input type="file" name="imagem" >
 
-  <input type="number" name="quantidade" placeholder="Quantidade">
-  <button type="submit">Adicionar</button>
-</form>
+      <input type="number" name="quantidade" placeholder="Quantidade">
+      <button type="submit">Adicionar</button>
+    </form>
 
 <!-- Tabela com a lista de produtos -->
 <table>
   <thead>
      <tr>
       <th>ID</th>
-      <th>Nome</th>
+      <th>Descrição</th>
       <th>Preço</th>
       <th>Imagem</th>
       <th>Quantidade</th>
@@ -51,24 +58,26 @@ $produtos = listarProdutos();
       <td><?= $produto['quantidade'] ?></td>
       <td>
         <form method="post">
-          <input type="hidden" name="acao" value="deletar">
+          <input type="hidden" name="acao" value="atualizar">
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">
-          <button type="submit">Deletar</button>
+          <input type="text" name="nome" placeholder="Novo nome">
+          <input type="number" step="any"  name="preco" placeholder="Novo preço">
+          <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">
+          <input type="hidden" name="quantidade" value="<?= $produto['quantidade'] ?>">
+          <button type="submit" class="btn btn-success">Atualizar</button>
         </form>
         <form method="post">
-  <input type="hidden" name="acao" value="atualizar">
-  <input type="hidden" name="id" value="<?= $produto['id'] ?>">
-  <input type="text" name="nome" placeholder="Novo nome">
-  <input type="number" step="any"  name="preco" placeholder="Novo preço">
-  <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">
-  <input type="hidden" name="quantidade" value="<?= $produto['quantidade'] ?>">
-  <button type="submit">Atualizar</button>
-</form>
+          <input type="hidden" name="acao" value="deletar">
+          <input type="hidden" name="id" value="<?= $produto['id'] ?>">
+          <button type="submit" class="btn btn-danger">Deletar</button>
+        </form>
+       
 
-      </td>
-    </tr>
-    <?php endforeach ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </tbody>
-</table>
+          </td>
+        </tr>
+        <?php endforeach ?>
+
+      </tbody>
+    </table>
+  </body>
+</html>

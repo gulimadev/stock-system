@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label class="col-form-label">Senha:</label>
                     <input class="form-control" type="password" name="password" required>
                 </div>
-                <button class="btn btn-primary btn-sm mt-3" type="submit">Entrar</button>
+                <button class="btn btn-primary btn-block mt-3 w-100" type="submit">Entrar</button>
             </form>
             <?php if(isset($mensagem)) { ?>
                 <div class="error"><?php echo $mensagem; ?></div>

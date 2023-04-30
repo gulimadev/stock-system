@@ -4,11 +4,11 @@ require_once('dbconfig.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($_POST['acao'] === 'adicionar') {
-    adicionarProduto($_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade']);
+    adicionarProduto($_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade'], $_POST['codbarras']);
   } else if ($_POST['acao'] === 'deletar') {
     deletarProduto($_POST['id']);
   } else if ($_POST['acao'] === 'atualizar') {
-    atualizarProduto($_POST['id'], $_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade']);
+    atualizarProduto($_POST['id'], $_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade'], $_POST['codbarras']);
   }
 }
 
@@ -33,6 +33,26 @@ $produtos = listarProdutos();
   <input type="file" name="imagem" >
 
       <input type="number" name="quantidade" placeholder="Quantidade">
+      <input type="text" name="codbarras" id="codigoDeBarras" placeholder="Codigo de Barras">
+      <button type="button" id="gerarCodigoBtn">Gerar Codigo</button>
+
+      <script type="module">
+        function GerarCodigo(){
+          let cod = 7891020301;
+          let sorteio = 999;
+          let random = function sortearNumero() { return Math.floor(Math.random() * sorteio + 100); }
+          let codigo = cod + "" + random();
+          return codigo;
+        }
+        const gerarCodigoBtn = document.querySelector('#gerarCodigoBtn');
+        const codigoDeBarras = document.querySelector('#codigoDeBarras');
+
+        gerarCodigoBtn.addEventListener('click', function() {
+          const codigoGerado = GerarCodigo();
+          codigoDeBarras.value = codigoGerado;
+        });
+      </script>
+
       <button type="submit">Adicionar</button>
     </form>
 
@@ -42,6 +62,7 @@ $produtos = listarProdutos();
      <tr>
       <th>ID</th>
       <th>Descrição</th>
+      <th>Cod. Barras</th>
       <th>Preço</th>
       <th>Imagem</th>
       <th>Quantidade</th>
@@ -53,6 +74,7 @@ $produtos = listarProdutos();
     <tr>
       <td><?= $produto['id'] ?></td>
       <td><?= $produto['nome'] ?></td>
+      <td><?= $produto['codbarras'] ?></td>
       <td><?= $produto['preco'] ?></td>
       <td ><img src="<?= $produto['imagem'] ?>" alt="" style="max-width: 450px; max-height: 150px;"></td>
       <td><?= $produto['quantidade'] ?></td>

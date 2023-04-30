@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else if ($_POST['acao'] === 'deletar') {
     deletarProduto($_POST['id']);
   } else if ($_POST['acao'] === 'atualizar') {
-    atualizarProduto($_POST['id'], $_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade']);
+    atualizarProduto($_POST['id'], $_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['nQuantidade']);
   }
 }
 
@@ -66,7 +66,7 @@ $produtos = listarProdutos();
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">
           <input type="text" name="nome" placeholder="Novo nome">
           <input type="number" step="any"  name="preco" placeholder="Novo preço">
-          <input type="number" name="quantidade" placeholder="Nova quantidade">
+          <input type="number" name="nQuantidade" placeholder="Nova quantidade">
 
 
           <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">

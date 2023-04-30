@@ -4,12 +4,30 @@ require_once('dbconfig.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($_POST['acao'] === 'adicionar') {
-    adicionarProduto($_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade']);
+    
+    if ( empty($_POST['nome'])  || empty($_POST['preco']) ||empty($_POST['quantidade']) ) {
+       
+      echo '<script>alert("POR FAVOR PREENCHA TODOS OS CAMPOS!!");</script>';}
+      else {
+        adicionarProduto($_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade']);
+      }
   } else if ($_POST['acao'] === 'deletar') {
     deletarProduto($_POST['id']);
+
+
+
+
   } else if ($_POST['acao'] === 'atualizar') {
+
+    if ( empty($_POST['nome']) || empty($_POST['preco']) ||empty($_POST['nQuantidade']) ) {
+       
+      echo '<script>alert("POR FAVOR PREENCHA TODOS OS CAMPOS!!");</script>';}
+      else { 
     atualizarProduto($_POST['id'], $_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['nQuantidade']);
+    }
+  
   }
+  
 }
 
 $produtos = listarProdutos();

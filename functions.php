@@ -1,7 +1,7 @@
 <?php
 require_once('dbconfig.php');
 
-function adicionarProduto($nome, $preco, $imagem, $quantidade) {
+function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
   include('dbconfig.php');
   $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
    // $conexao = obterConexao();
@@ -9,8 +9,9 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade) {
     $preco = mysqli_real_escape_string($conexao, $preco);
     $imagem = mysqli_real_escape_string($conexao, $imagem);
     $quantidade = mysqli_real_escape_string($conexao, $quantidade);
-  
-    $query = "INSERT INTO PRODUTOS (nome, preco, imagem, quantidade) VALUES ('$nome', '$preco',CONCAT( 'img/','$imagem'), '$quantidade')";
+    $codbarras = mysqli_real_escape_string($conexao, $codbarras);
+
+    $query = "INSERT INTO PRODUTOS (nome, preco, imagem, quantidade, codbarras) VALUES ('$nome', '$preco',CONCAT( 'img/','$imagem'), '$quantidade', '$codbarras')";
     $resultado = mysqli_query($conexao, $query);
   
     $conexao->close();
@@ -59,12 +60,12 @@ function deletarProduto($id) {
   include('dbconfig.php');
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   $id = mysqli_real_escape_string($conn, $id);
-  $query = "DELETE  FROM PRODUTOS WHERE id = '$id'";
+  $query = "DELETE FROM PRODUTOS WHERE id = '$id'";
   mysqli_query($conn, $query);
   mysqli_close($conn);
 }
 
-function atualizarProduto($id, $nome, $preco, $imagem, $quantidade) { 
+function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) { 
   include('dbconfig.php');
   $ArrayProdutos=listarProdutos();
   $conexao  = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -73,8 +74,9 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade) {
     $preco      = mysqli_real_escape_string($conexao, $preco);
     $imagem     = mysqli_real_escape_string($conexao, $imagem);
     $quantidade = mysqli_real_escape_string($conexao, $quantidade);
-  
-    $query = "UPDATE PRODUTOS SET nome='$nome', preco='$preco', imagem='$imagem', quantidade='$quantidade' WHERE id=$id";
+    $codbarras = mysqli_real_escape_string($conexao, $codbarras);
+
+    $query = "UPDATE PRODUTOS SET nome='$nome', preco='$preco', imagem='$imagem', quantidade='$quantidade', codbrras='$codbarras' WHERE id=$id";
     $resultado = $conexao->query($query);
   
     $conexao->close();
@@ -82,4 +84,12 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade) {
     return $resultado;
   }
   
+  function ultimoCodigo(){
+    include('dbconfig.php');
+    $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
+    $query = "SELECT MAX(CODIGO) FROM PRODUTOS";
+    $resultado = $conexao->query($query);
+    return $resultado;
+  }
+
 ?>

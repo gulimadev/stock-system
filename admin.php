@@ -52,7 +52,7 @@ $produtos = listarProdutos();
     <input type="file" name="imagem" >
     <input type="number" name="quantidade" placeholder="Quantidade">
     <input type="text" name="codbarras" id="codigoDeBarras" placeholder="Codigo de Barras">
-    <button type="button" id="gerarCodigoBtn">Gerar Codigo</button>
+    <button type="button" id="gerarCodigoBtn" class="btn btn-primary">Gerar Codigo</button>
     <script type="module">
       function GerarCodigo(){
         let cod = 7891020301;

@@ -28,8 +28,7 @@ No <b>Supermercado Alimentos Fictícios</b>, estamos comprometidos em oferecer a
 
 </div>
 <div class="title descricao">
-<p> Entre em contato conosco</p>
-<form class="formulario envio msg">
+<form id="form-sobre" class="formulario envio msg">
 <label class="email cliente" for="email-cliente">Digite seu Email: </label>
 <input type="text" id="email-cliente" name="email-cliente" require="" placeholder="fulano@email.com">
 <label class="assunto" for="assunto">Assunto: </label>

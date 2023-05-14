@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  
 
  
-    $conn = new mysqli($servidor, $usuario , $senha , $bancodedados);
+    $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
 //    mysql_query("SET NAMES 'utf8'");
 //    mysql_query('SET character_set_connection=utf8');
 //    mysql_query('SET character_set_client=utf8');

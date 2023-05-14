@@ -38,7 +38,7 @@
         echo '<img src="' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
         echo '<h3>' . $produto['nome'] . '</h3>';
         echo '<p>R$ ' . $produto['preco'] . '</p>';
-        echo '<a href="#" class="botao-comprar">Comprar</a>';
+        echo '<a href="#" class="botao-comprar">Adicionar ao carrinho</a>';
         echo '</div>';
       }
 

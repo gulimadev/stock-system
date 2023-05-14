@@ -70,6 +70,8 @@ $produtos = listarProdutos();
       });
     </script>
     <button type="submit" class="btn btn-primary">Adicionar</button>
+    <input type="text" id="campo-busca" placeholder="Digite o que deseja buscar...">
+
   </form>
   </div>
 

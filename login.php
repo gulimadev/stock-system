@@ -1,4 +1,5 @@
 <?php
+include('dbconfig.php');
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,12 +8,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['password'];
  
     // Conexão com o banco de dados
-    $servername = "195.179.237.217";
-    $username = "u865174000_uniasselvi";
-    $password = "Uniasselvi@@2023";
-    $dbname = "u865174000_uniasselvi";
+     
  
-    $conn = new mysqli($servername, $username, $password, $dbname);
+ 
+
+ 
+    $conn = new mysqli($servidor, $usuario , $senha , $bancodedados);
 //    mysql_query("SET NAMES 'utf8'");
 //    mysql_query('SET character_set_connection=utf8');
 //    mysql_query('SET character_set_client=utf8');

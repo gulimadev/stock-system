@@ -70,15 +70,23 @@ $produtos = listarProdutos();
         codigoDeBarras.value = codigoGerado;
       });
     </script>
-    <button type="submit" class="btn btn-primary">Adicionar</button>
-    <input type="text" id="campo-busca" placeholder="Digite o que deseja buscar...">
-
+    
   </form>
   </div>
+ 
 
 <!-- Tabela com a lista de produtos -->
 <div class="container">
-<table class="table table-striped mb-5">
+    <div class="search-container d-flex align-items-center justify-content-center">
+        <input  type="text" class="form-control form-control-lg col-1" id="campo-busca" placeholder="Digite o que deseja buscar...">
+        
+      
+        </div>
+
+<div class="row">
+    
+</div>
+<table class="table table-striped mb-3">
   <thead>
      <tr>
       <th>ID</th>

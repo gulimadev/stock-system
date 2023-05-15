@@ -55,6 +55,25 @@ function listarProdutos() {
   $conn->close();
   return $produtos;
 }
+function localizarProdutos() {
+  include('dbconfig.php');
+  $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
+  if ($conn->connect_error){
+    die("falha na comexão: ".$conn->connect_error);}else {
+      # code...
+    }
+  $sql = "SELECT * FROM PRODUTOS where  nome=$nomeProduto";
+  $result = $conn->query($sql);
+  $produtos = array();
+  while ($row = mysqli_fetch_assoc($result)) {
+   
+      $produtos[] = $row;
+    
+   
+  }
+  $conn->close();
+  return $produtos;
+}
 
 function deletarProduto($id) {
   include('dbconfig.php');

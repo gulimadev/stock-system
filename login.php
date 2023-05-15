@@ -1,18 +1,19 @@
 <?php
+include('dbconfig.php');
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
  
-    $usuario = $_POST['username'];
-    $senha = $_POST['password'];
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
  
     // Conexão com o banco de dados
-    $servername = "195.179.237.217";
-    $username = "u865174000_uniasselvi";
-    $password = "Uniasselvi@@2023";
-    $dbname = "u865174000_uniasselvi";
+     
  
-    $conn = new mysqli($servername, $username, $password, $dbname);
+ 
+
+ 
+    $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
 //    mysql_query("SET NAMES 'utf8'");
 //    mysql_query('SET character_set_connection=utf8');
 //    mysql_query('SET character_set_client=utf8');
@@ -24,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
  
     // Verifica se o usuário existe e se a senha está correta
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha'";
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$user' and senha = '$pass'";
     $result = $conn->query($sql);
  
     if ($result->num_rows > 0) {

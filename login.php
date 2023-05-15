@@ -4,8 +4,8 @@ session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
  
-    $usuario = $_POST['username'];
-    $senha = $_POST['password'];
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
  
     // Conexão com o banco de dados
      
@@ -25,12 +25,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
  
     // Verifica se o usuário existe e se a senha está correta
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha'";
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$user' and senha = '$pass'";
     $result = $conn->query($sql);
  
     if ($result->num_rows > 0) {
         // Se o usuário e senha estão corretos, cria uma sessão e redireciona para a página principal
-        $_SESSION['username'] = $usuario;
+        $_SESSION['username'] = $user;
         header("Location: admin.php");
     } else {
         // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
@@ -52,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<title>Tela de Login</title>
     <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="./img/icons/icone-chave.png">
 </head>
 <body class="view">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">

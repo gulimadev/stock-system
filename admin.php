@@ -54,6 +54,7 @@ $produtos = listarProdutos();
     <input type="number" name="quantidade" placeholder="Quantidade">
     <input type="text" name="codbarras" id="codigoDeBarras" placeholder="Codigo de Barras">
     <button type="button" id="gerarCodigoBtn">Gerar Codigo</button>
+    <button type="submit" class="btn btn-primary">Adicionar</button>
     <script type="module">
       function GerarCodigo(){
         let cod = 7891020301;
@@ -76,13 +77,17 @@ $produtos = listarProdutos();
  
 
 <!-- Tabela com a lista de produtos -->
-<div class="container">
+<div class="container ">
+  <div class="input-group d-flex align-items-center justify-content-center mb-3">
+    
     <div class="search-container d-flex align-items-center justify-content-center">
         <input  type="text" class="form-control form-control-lg col-1" id="campo-busca" placeholder="Digite o que deseja buscar...">
-        
-      
+        <div class="input-group-append"> 
+          <button type="button" class="btn btn-primary">Buscar</button>
         </div>
-
+        
+    </div>
+  </div>
 <div class="row">
     
 </div>

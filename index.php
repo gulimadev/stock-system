@@ -23,7 +23,7 @@
 	</header>
 
 	<main>
-  <h2>Produtos em Destaque</h2>
+  <h2>Produtos Na pratileira</h2>
   <div class="row">
     <?php
       // Conecta ao banco de dados

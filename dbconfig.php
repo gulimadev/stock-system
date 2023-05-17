@@ -15,5 +15,6 @@ $servidor = "195.179.237.217";
 $usuario = "u865174000_uniasselvi";
 $senha = "Uniasselvi@@2023";
 $bancodedados = "u865174000_uniasselvi";
+// CONFIG PARA TELA DE LOGIN
 
 ?>

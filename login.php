@@ -1,18 +1,19 @@
 <?php
+include('dbconfig.php');
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
  
-    $usuario = $_POST['username'];
-    $senha = $_POST['password'];
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
  
     // Conexão com o banco de dados
-    $servername = "195.179.237.217";
-    $username = "u865174000_uniasselvi";
-    $password = "Uniasselvi@@2023";
-    $dbname = "u865174000_uniasselvi";
+     
  
-    $conn = new mysqli($servername, $username, $password, $dbname);
+ 
+
+ 
+    $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
 //    mysql_query("SET NAMES 'utf8'");
 //    mysql_query('SET character_set_connection=utf8');
 //    mysql_query('SET character_set_client=utf8');
@@ -24,12 +25,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
  
     // Verifica se o usuário existe e se a senha está correta
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' and senha = '$senha'";
+    $sql = "SELECT * FROM usuarios WHERE usuario = '$user' and senha = '$pass'";
     $result = $conn->query($sql);
  
     if ($result->num_rows > 0) {
         // Se o usuário e senha estão corretos, cria uma sessão e redireciona para a página principal
-        $_SESSION['username'] = $usuario;
+        $_SESSION['username'] = $user;
         header("Location: admin.php");
     } else {
         // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
@@ -51,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<title>Tela de Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="./img/icons/icone-chave.png">
 </head>
 <body class="view">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">

@@ -10,6 +10,11 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+h2{
+  text-align: center;
+
+
+}
 .login-form h2 {
     text-align: center;
     font-weight: bold;
@@ -201,4 +206,10 @@ form {
     height: 50px;
     text-align: center;
     vertical-align: middle;
+  }
+ 
+ 
+  header li a:hover{
+    background-color: white;
+    text-decoration: none;
   }

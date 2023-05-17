@@ -40,6 +40,7 @@ $produtos = listarProdutos();
     <title>Administração</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="./img/icons/icon-adm.png">
   </head> 
 <!-- Formulário para adicionar um produto -->
 <body class="view">
@@ -70,6 +71,8 @@ $produtos = listarProdutos();
       });
     </script>
     <button type="submit" class="btn btn-primary">Adicionar</button>
+    <input type="text" id="campo-busca" placeholder="Digite o que deseja buscar...">
+
   </form>
   </div>
 

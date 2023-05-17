@@ -37,9 +37,10 @@ $produtos = listarProdutos();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administração</title>
+    <title>Administração | Loja de produtos</title>
     <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="./img/icons/icon-adm.png">
   </head> 
 <!-- Formulário para adicionar um produto -->
 <body class="view">

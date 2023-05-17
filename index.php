@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa loja</title>
+    <title>Loja de produtos | Artigos</title>
     <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="./img/icons/icone-loja.png">
 </head>
 <body class="view">
 		<!-- Barra navegação -->
+
     <nav class="navbar bg-primary">
       <div class="container">
         

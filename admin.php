@@ -2,14 +2,20 @@
 require('functions.php');
 require_once('dbconfig.php');
 
+//FUNÇÃO OBRIGATÓRA PARA O BOTÃO LOCALIZAR
+
+
+// ESSA CONDICIONAL É QUEM ACIONA AS "FUNCTIONS DA PÁGINA  functions.php"
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
   if ($_POST['acao'] === 'adicionar') {
-    
+    // VERIFICA SE TEM ALGUM CAMPO VAZIO NA HORA DE ADICIONAR ALGUM PRODUTO
     if ( empty($_POST['nome'])  || empty($_POST['preco']) ||empty($_POST['quantidade']) || empty($_POST['codbarras'])) {
        
-      echo '<script>alert("POR FAVOR PREENCHA TODOS OS CAMPOS!!");</script>';}
+      echo '<script>alert("POR FAVOR PREENCHA TODOS OS CAMPOS!!");</script>' ;}
       else {
         adicionarProduto($_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['quantidade'], $_POST['codbarras']);
+        
       }
   } else if ($_POST['acao'] === 'deletar') {
     deletarProduto($_POST['id']);
@@ -23,12 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     atualizarProduto($_POST['id'], $_POST['nome'], $_POST['preco'], $_POST['imagem'], $_POST['nQuantidade'], $_POST['codbarras']);
     }
   
-  }
   
+  }
 }
 
-$produtos = listarProdutos();
 
+
+  $produtos = listarProdutos();
+  
+
+
+
+
+//$nomeProduto = ($_POST["buscar"]);
 ?>
 <!-- add bootstrap -->
 <!DOCTYPE html>
@@ -76,18 +89,28 @@ $produtos = listarProdutos();
   </div>
  
 
-<!-- Tabela com a lista de produtos -->
+ <!-- Botão busca de produtos -->
+ <form method="POST" action="admin.php">
 <div class="container ">
   <div class="input-group d-flex align-items-center justify-content-center mb-3">
     
     <div class="search-container d-flex align-items-center justify-content-center">
-        <input  type="text" class="form-control form-control-lg col-1" id="campo-busca" placeholder="Digite o que deseja buscar...">
+    <input type="hidden" name="acao" value="localizar">  
+        <input  type="text" class="form-control form-control-lg col-1 " name="Pesquisar" id="campo-busca" placeholder="Digite o que deseja buscar...">
         <div class="input-group-append"> 
-          <button type="button" class="btn btn-primary">Buscar</button>
+          <button type="submit" class="btn btn-primary rounded" name="Buscar" id="buscar">Buscar</button>
         </div>
+        <? 
+        // Recuperar o termo de pesquisa
         
-    </div>
+          global  $localizarProduto ;
+          
+        
+        ?>
   </div>
+</div>
+</form>
+  <!-- Tabela com a lista de produtos -->
 <div class="row">
     
 </div>
@@ -104,7 +127,9 @@ $produtos = listarProdutos();
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($produtos as $produto): ?>
+    <?php 
+   
+    foreach ($produtos as $produto): ?>
     <tr>
       <td><?= $produto['id'] ?></td>
       <td><?= $produto['nome'] ?></td>
@@ -140,4 +165,5 @@ $produtos = listarProdutos();
 		<p>&copy; 2023 Minha Loja de Alimentos</p>
 </footer>
 </body>
+
 </html>

@@ -1,6 +1,35 @@
 <?php
 require_once('dbconfig.php');
+global $localizarProduto;
+function listarProdutos() {
+  include('dbconfig.php');
+  if (isset($_POST['Pesquisar'])) {
+    $localizarProduto = $_POST['Pesquisar'];
+  }
+  
+  $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
+  if ($conn->connect_error){
+    die("falha na comexão: ".$conn->connect_error);}else {
+      # code...
+    }
 
+  if (empty($_POST['Pesquisar']) ) {
+    $sql = "SELECT * FROM PRODUTOS";
+  }else {
+    $sql = "SELECT * FROM PRODUTOS  WHERE (nome LIKE '%".$localizarProduto."%')";
+  }
+   
+  $result = $conn->query($sql);
+  $produtos = array();
+  while ($row = mysqli_fetch_assoc($result)) {
+   
+      $produtos[] = $row;
+    
+   
+  }
+  $conn->close();
+  return $produtos;
+}
 function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
   include('dbconfig.php');
   $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -36,43 +65,31 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
     return $conexao;
   }
   
-function listarProdutos() {
+
+function localizarProdutos2() {
   include('dbconfig.php');
+  
+  
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conn->connect_error){
     die("falha na comexão: ".$conn->connect_error);}else {
       # code...
     }
-  $sql = "SELECT * FROM PRODUTOS";
+  $sql = "SELECT PRO.nome FROM PRODUTOS PRO WHERE (PRO.nome =$localizarProduto)";
+  $sqlLocalizar="SELECT * FROM PRODUTOS";
   $result = $conn->query($sql);
-  $produtos = array();
+  $Lprodutos = array();
+
+
+
   while ($row = mysqli_fetch_assoc($result)) {
    
-      $produtos[] = $row;
+      $Lprodutos[] = $row;
     
    
   }
   $conn->close();
-  return $produtos;
-}
-function localizarProdutos() {
-  include('dbconfig.php');
-  $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
-  if ($conn->connect_error){
-    die("falha na comexão: ".$conn->connect_error);}else {
-      # code...
-    }
-  $sql = "SELECT * FROM PRODUTOS where  nome=$nomeProduto";
-  $result = $conn->query($sql);
-  $produtos = array();
-  while ($row = mysqli_fetch_assoc($result)) {
-   
-      $produtos[] = $row;
-    
-   
-  }
-  $conn->close();
-  return $produtos;
+  return $Lprodutos;
 }
 
 function deletarProduto($id) {

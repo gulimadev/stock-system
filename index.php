@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de produtos | Artigos</title>
-    <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.css">
+    <title>Nossa loja</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" href="./img/icons/icone-loja.png">
 </head>
-<body>
-	<header>
-		<h1>Minha Loja de Alimentos</h1>
-		<nav class="navbar-nav">
-			<ul class="list-group-flush">
-				<li class="nav-item"><a href="#" class="btn btn-outline-light ml-4">Produtos</a></li>
-				<li class="nav-item"><a href="#" class="btn btn-outline-light ml-4">Sobre Nós</a></li>
-				<li class="nav-item"><a href="#" class="btn btn-outline-light ml-4">Contato</a></li>
-        <li class="nav-item"><a href="login.php" target="_blank" class="btn btn-outline-light ml-4">Entrar</a></li>
-			</ul>
-		</nav>
-	</header>
+<body class="view">
+		<!-- Barra navegação -->
+    <nav class="navbar bg-primary">
+      <div class="container">
+        
+        <div class="navbar-header">
+		      <a href="#" class="navbar-brand text-white">MINHA LOJA DE ALIMENTOS</a>
+        </div>
+<!--  -->
+        <div>
+        <ul class="d-flex flex-row justify-content-between align-items-center nav navbar">
+          <li class="nav-item"> <a href="#" class="nav-link text-white">PRODUTOS</a> </li>
+          <li class="nav-item"> <a href="#" class="nav-link text-white">QUEM SOMOS</a> </li>
+          <li class="nav-item"> <a href="#" class="nav-link text-white">CONTATOS</a> </li>
+          <li class="nav-item"><a href="#" class="text-white fw-bold fs-3">
+            <ion-icon name="cart-outline" class=""></ion-icon>  <!-- icone do carrinho -->
+          </a></li>
+        </ul>
+        </div>
+      
+		
+      </div>
+    </nav>
 
 	<main>
   <h2>Produtos Na pratileira</h2>
@@ -37,10 +48,13 @@
       // Loop para exibir as informações de cada produto
       while ($produto = mysqli_fetch_assoc($resultado)) {
         echo '<div class="col-md-4 produto">';
-        echo '<img src="' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 180px;">';
-        echo '<h3>' . $produto['nome'] . '</h3>';
-        echo '<p>R$ ' . $produto['preco'] . '</p>';
-        echo '<a href="#" class="botao-comprar">Adicionar ao carrinho</a>';
+        echo '<img src="' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
+       
+        echo '<div class="status-produto border w-100">';
+        echo '<h3 class="fw-bold">' . $produto['nome'] . '</h3>';
+        echo '<p class="fw-bold">R$ ' . $produto['preco'] . '</p>';
+        echo '<a href="#" class="botao-comprar btn btn-primary btn-block w-100 fw-bold">Comprar</a>';
+        echo '</div>';
         echo '</div>';
       }
 
@@ -51,8 +65,20 @@
 </main>
 
 
-	<footer>
-		<p>&copy; 2023 Minha Loja de Alimentos</p>
+	<footer class="bg-primary d-flex flex-row justify-content-evenly">
+    <div>
+      <span class="text-white fw-bold">&copy; 2023 Minha Loja de Alimentos</span><br>
+      <span class="text-white fw-bold">CNPJ:12.345.678/0001-90</span>
+    </div>
+    <div>
+      <span class="text-white fw-bold">Termos de uso</span><br>
+      <span class="text-white fw-bold">Política de privacidade</span>
+    </div>
 	</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="funcoes.js"></script>
+      <!-- icones externos do ionicons -->
+  <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
+  <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
 </body>
 </html>

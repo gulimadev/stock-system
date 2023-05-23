@@ -56,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" href="./img/icons/icon-adm.png">
   </head> 
 <!-- Formulário para adicionar um produto -->
-<body class="view">
+<body class="view" action="admin.php">
   <div class="container d-flex flex-column justify-content-center align-items-center mt-5 mb-5 border-bottom border-primary">
-  <form method="POST" class="d-flex flex-column w-50 mb-5">
+  <form method="POST"  class="d-flex flex-column w-50 mb-5">
     <h2 class="font-weight-bold text-center">Adição de Produtos</h2>
     <input type="hidden" name="acao" value="adicionar">
     <input type="text" name="nome" placeholder="Nome">
@@ -67,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="number" name="quantidade" placeholder="Quantidade">
     <input type="text" name="codbarras" id="codigoDeBarras" placeholder="Codigo de Barras">
     <button type="button" id="gerarCodigoBtn" class="btn btn-primary">Gerar Codigo</button>
-    <button type="button" id="gerarCodigoBtn">Gerar Codigo</button>
-    <button type="submit" class="btn btn-primary">Adicionar</button>
+    
+    <button type="submit" class="btn btn-primary" action="admin.php">Adicionar</button>
     <script type="module">
       function GerarCodigo(){
         let cod = 7891020301;

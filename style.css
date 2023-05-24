@@ -212,3 +212,24 @@ form {
     background-color: white;
     text-decoration: none;
   }
+  .search-container {
+    position: absolute;
+    display: inline-block;
+  }
+  
+  .search-input {
+    padding-right: 40px; /* Espaçamento para o botão */
+  }
+  
+  .search-button {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+  }
+  .my-button {
+    width: 50px; /* Ajuste a largura do botão */
+    height: 15px; /* Ajuste a altura do botão */
+    padding: 5px 10px; /* Ajuste o espaçamento interno do botão */
+    font-size: 7px; /* Ajuste o tamanho da fonte do botão */
+  }

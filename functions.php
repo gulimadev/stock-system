@@ -128,4 +128,10 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) 
     return $resultado;
   }
 
+  function verificacao($path)
+  {
+    if (!$SESSION['id']){
+       header('Location:'.$path); 
+    }
+  }
 ?>

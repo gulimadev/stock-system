@@ -16,6 +16,10 @@
 				<li class="nav-item"><a class="dropdown-item" href="#">Produtos</a></li>
 				<li class="nav-item"><a class="dropdown-item" href="#">Sobre Nós</a></li>
 				<li class="nav-item"><a class="dropdown-item" href="#">Contato</a></li>
+        <li class="nav-item"><a class="dropdown-item" href="#">Entrar</a> </li>
+                            
+                            <!--target="_blank" quer dizer abrir uma nova aba para p endereço q vc quer lincar -->
+                       
 			</ul>
 		</nav>
 	</header>

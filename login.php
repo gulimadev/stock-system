@@ -3,55 +3,49 @@ include('dbconfig.php');
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
- 
     $user = $_POST['username'];
     $pass = $_POST['password'];
- 
     // Conexão com o banco de dados
-     
- 
- 
 
- 
     $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
-//    mysql_query("SET NAMES 'utf8'");
-//    mysql_query('SET character_set_connection=utf8');
-//    mysql_query('SET character_set_client=utf8');
-//    mysql_query('SET character_set_results=utf8');
+
+// mysql_query("SET NAMES 'utf8'");
+// mysql_query('SET character_set_connection=utf8');
+// mysql_query('SET character_set_client=utf8');
+// mysql_query('SET character_set_results=utf8');
     
-    // Verifica se a conexão foi bem sucedida
-    if ($conn->connect_error) {
-        die("Conexão falhou: " . $conn->connect_error);
-    }
+// Verifica se a conexão foi bem sucedida
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
  
-    // Verifica se o usuário existe e se a senha está correta
-    $sql = "SELECT * FROM usuarios WHERE usuario = '$user' and senha = '$pass'";
-    $result = $conn->query($sql);
+// Verifica se o usuário existe e se a senha está correta
+$sql = "SELECT * FROM usuarios WHERE usuario = '$user' and senha = '$pass'";
+$result = $conn->query($sql);
  
-    if ($result->num_rows > 0) {
-        // Se o usuário e senha estão corretos, cria uma sessão e redireciona para a página principal
-        $_SESSION['username'] = $user;
-        header("Location: admin.php");
-    } else {
-        // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
-        $mensagem = "Usuário ou senha incorretos.";
-    }
- 
+if ($result->num_rows > 0) {
+    // Se o usuário e senha estão corretos, cria uma sessão e redireciona para a página principal
+    $_SESSION['username'] = $user;
+    header("Location: admin.php");
+} else {
+    // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
+    $mensagem = "Usuário ou senha incorretos.";
+}
     $conn->close();
 }
-
 ?>
  
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tela de Login</title>
+    <!-- Boostrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- CSS local -->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" href="./img/icons/icone-chave.png">
 </head>
 <body class="view">
@@ -74,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php } ?>
         </div>
     </div>
-
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

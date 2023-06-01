@@ -1,5 +1,5 @@
 <?php
-include('dbconfig.php');
+include('./model/dbconfig.php');
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,7 +26,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // Se o usuário e senha estão corretos, cria uma sessão e redireciona para a página principal
     $_SESSION['username'] = $user;
-    header("Location: admin.php");
+    header("Location: ../controller/admin.php");
 } else {
     // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
     $mensagem = "Usuário ou senha incorretos.";
@@ -45,13 +45,13 @@ if ($result->num_rows > 0) {
     <!-- Boostrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<!-- CSS local -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./scripts/style.css">
     <link rel="icon" href="./img/icons/icone-chave.png">
 </head>
 <body class="view">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
-        <div class="login-form w-25">
-            <h2>Tela de Login</h2>
+        <div class="border border-dark border-1 rounded-3 shadow-lg p-4 w-25">
+            <h2 class="text-center">Tela de Login</h2>
             <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">
                     <label class="col-form-label">Nome de Usuário:</label>

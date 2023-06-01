@@ -1,6 +1,6 @@
 <?php
 require('functions.php');
-require_once('dbconfig.php');
+require_once('../model/dbconfig.php');
 
 //FUNÇÃO OBRIGATÓRA PARA O BOTÃO LOCALIZAR
 
@@ -37,7 +37,7 @@ $produtos = listarProdutos();
   <!-- bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <!-- CSS local -->
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../view/scripts/style.css">
   <link rel="icon" href="./img/icons/icon-adm.png">
 </head> 
 
@@ -55,19 +55,19 @@ $produtos = listarProdutos();
           <button type="button" id="gerarCodigoBtn" class="btn btn-primary">Gerar Codigo</button>
           <button type="submit" class="btn btn-primary">Adicionar</button>
             <script type="module">
-            function GerarCodigo(){
-              let cod = 7891020301;
-              let sorteio = 999;
-              let random = function sortearNumero() { return Math.floor(Math.random() * sorteio + 100); }
-              let codigo = cod + "" + random();
-              return codigo;
-            }
-            const gerarCodigoBtn = document.querySelector('#gerarCodigoBtn');
-            const codigoDeBarras = document.querySelector('#codigoDeBarras');
-              gerarCodigoBtn.addEventListener('click', function() {
-              const codigoGerado = GerarCodigo();
-              codigoDeBarras.value = codigoGerado;
-            });
+              function GerarCodigo(){
+                let cod = 7891020301;
+                let sorteio = 999;
+                let random = Math.floor(Math.random() * sorteio) + 100;
+                let codigo = `${cod}${random}`;
+                return codigo;
+              }
+              const gerarCodigoBtn = document.querySelector('#gerarCodigoBtn');
+              const codigoDeBarras = document.querySelector('#codigoDeBarras');
+                gerarCodigoBtn.addEventListener('click', function() {
+                const codigoGerado = GerarCodigo();
+                codigoDeBarras.value = codigoGerado;
+              });
             </script>
     </form>
   </div>

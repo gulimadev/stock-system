@@ -8,7 +8,7 @@
     <!-- bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CSS local -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./scripts/style.css">
     <link rel="icon" href="./img/icons/icone-loja.png">
 </head>
 <body class="view">
@@ -42,7 +42,7 @@
      <div class="row justify-content-center">
       <?php
       // Conecta ao banco de dados
-      require_once('dbconfig.php');
+      require_once('../model/dbconfig.php');
       $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
 
       // Seleciona todos os produtos
@@ -52,7 +52,7 @@
       // Loop para exibir as informações de cada produto
       while ($produto = mysqli_fetch_assoc($resultado)) {
         echo '<div class="col-md-4 produto">';
-        echo '<img src="' . $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
+        echo '<img src="../img/'. $produto['imagem'] . '" alt="' . $produto['nome'] . '" style="max-width: 200px;">';
         echo '<div class="status-produto border w-100">';
         echo '<h3 class="fw-bold">' . $produto['nome'] . '</h3>';
         echo '<p class="fw-bold">R$ ' . $produto['preco'] . '</p>';
@@ -77,12 +77,13 @@
       <span class="text-white fw-bold">Política de privacidade</span>
     </div>
 	</footer>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!-- Javascript local -->
-  <script src="funcoes.js"></script>
-  <!-- icones externos do ionicons -->
-  <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
-  <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Javascript local -->
+<script src="./scripts/funcoes.js"></script>
+<!-- icones externos do ionicons -->
+<script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
+<script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
 </body>
 </html>

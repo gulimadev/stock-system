@@ -1,9 +1,9 @@
 <?php
-require_once('dbconfig.php');
+require_once('../model/dbconfig.php');
 
 global $localizarProduto;
 function listarProdutos() {
-  include('dbconfig.php');
+  include('../model/dbconfig.php');
   if (isset($_POST['Pesquisar'])) {
     $localizarProduto = $_POST['Pesquisar'];
   }
@@ -29,9 +29,9 @@ function listarProdutos() {
   $conn->close();
   return $produtos;
 }
-
+<?php
 function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
-  include('dbconfig.php');
+  include('../model/dbconfig.php');
     $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
    // $conexao = obterConexao();
     $nome = mysqli_real_escape_string($conexao, $nome);
@@ -44,14 +44,14 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
     $conexao->close();
     return $resultado;
 }
-  
+?>  
 function fecharConexao($conexao) {
-  require_once('dbconfig.php');
+  require_once('../model/dbconfig.php');
   $conexao->close();
 }
 
 function obterConexao() {
-  include('dbconfig.php');
+  include('../model/dbconfig.php');
     $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conexao->connect_error){
     die("falha na comexão: ".$conexao->connect_error);}
@@ -62,7 +62,7 @@ function obterConexao() {
 }
   
 function localizarProdutos2() {
-  include('dbconfig.php');
+  include('../model/dbconfig.php');
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conn->connect_error){
     die("falha na comexão: ".$conn->connect_error);
@@ -82,7 +82,7 @@ function localizarProdutos2() {
 }
 
 function deletarProduto($id) {
-  include('dbconfig.php');
+  include('../model/dbconfig.php');
     $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
     $id = mysqli_real_escape_string($conn, $id);
     $query = "DELETE FROM PRODUTOS WHERE id = '$id'";
@@ -91,7 +91,7 @@ function deletarProduto($id) {
 }
 
 function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) { 
-  include('dbconfig.php');
+  include('../model/dbconfig.php');
     $ArrayProdutos=listarProdutos();
     $conexao  = new mysqli($servidor, $usuario, $senha, $bancodedados);
     $id         = mysqli_real_escape_string($conexao, $id); 
@@ -107,7 +107,7 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) 
 }
   
 function ultimoCodigo(){
-  include('dbconfig.php');
+  include('../model/dbconfig.php');
     $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
     $query = "SELECT MAX(CODIGO) FROM PRODUTOS";
     $resultado = $conexao->query($query);

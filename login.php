@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	<link rel="stylesheet" type="text/css" href="style.css">
     <link rel="icon" href="./img/icons/icone-chave.png">
 </head>
-<body class="view">
+<body class="view marketing">
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
         <div class="login-form w-25">
             <h2>Tela de Login</h2>

@@ -11,35 +11,16 @@
 </head>
 <header >
 
-<nav class="navbar navbar-expand-sm navbar-light bg-primary">
-  <div class="container">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  
-     
-     
-    </ul>
-    <form method="POST" action="index.php">
-<div class="container ">
-  <div class="input-group d-flex align-items-center justify-content-center mb-3">
-    
-    <div class="search-container d-flex align-items-center justify-content-center">
-    <input type="hidden" name="acao" value="localizar">  
-        <input  type="text" class="form-control form-control-lg col-3 sm-2" name="Pesquisar" id="campo-busca" placeholder="Digite o que deseja buscar...">
-        <div class="input-group-append"> 
-          <button type="submit" class="btn btn-primary rounded" name="Buscar" id="buscar">Buscar</button>
-        </div>
-        
-  </div>
-</div>
-</form>
-  </div>
-  </div>
-</nav>
-  <!-- Barra navegação 
+
+
+
+
+
+
+ 
+
+  <!-- Barra navegação-->
   <nav class="navbar bg-primary">
       <div class="container">
         
@@ -48,8 +29,8 @@
         </div>
 
         <div>
-        <ul class="d-flex flex-row justify-content-between align-items-center nav navbar">
-          <li class="nav-item"> <a href="#" class="btn btn-outline-light">PRODUTOS</a> </li>
+        <ul class="flex-row justify-content-between align-items-center  nav navbar">
+          <li class="nav-item "> <a href="#" class="btn btn-outline-light">PRODUTOS</a> </li>
           <li class="nav-item"> <a href="#" class="btn btn-outline-light">QUEM SOMOS</a> </li>
           <li class="nav-item"> <a href="#" class="btn btn-outline-light">CONTATOS</a> </li>
           <li class="nav-item"><a href="login.php" target="_blank" class="btn btn-outline-light">ENTRAR</a></li>
@@ -63,7 +44,7 @@
 		
       </div>
     </nav>
-    -->
+    
 </header>
 <body class="view">
 		

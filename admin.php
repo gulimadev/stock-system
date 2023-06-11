@@ -162,8 +162,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </tbody>
 </table>
 </div>
-<footer>
-		<p>&copy; 2023 Minha Loja de Alimentos</p>
+<footer class="d-flex flex-row justify-content-evenly">
+		<div>
+      <span class="fw-bold">&copy; 2023 Minha Loja de Alimentos</span><br>
+      <span class="fw-bold">CNPJ:12.345.678/0001-90</span>
+    </div>
+    <div>
+      <span class="fw-bold">Termos de uso</span><br>
+      <span class="fw-bold">Política de privacidade</span>
+    </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

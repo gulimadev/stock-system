@@ -50,6 +50,9 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f7f7f7;
   }
+.marketing {
+  background-image: url("img/icons/icon-grid.svg");
+}
   
   /* Definição de estilos para o cabeçalho */
  

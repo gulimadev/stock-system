@@ -1,5 +1,5 @@
 <?php
-include('dbconfig.php');
+include('../MODAL/dbconfig.php');
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Se o usuário e senha estão corretos, cria uma sessão e redireciona para a página principal
         $_SESSION['username'] = $user;
-        header("Location: admin.php");
+        header("Location: ../CONTROLLER/admin.php");
     } else {
         // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
         $mensagem = "Usuário ou senha incorretos.";

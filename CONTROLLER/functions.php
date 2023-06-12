@@ -1,8 +1,11 @@
 <?php
-require_once('dbconfig.php');
+//
+require_once('../MODAL/dbconfig.php');
+//variável global extraida da página
 global $localizarProduto;
+// função que lista produtos
 function listarProdutos() {
-  include('dbconfig.php');
+  include('../MODAL/dbconfig.php');
   if (isset($_POST['Pesquisar'])) {
     $localizarProduto = $_POST['Pesquisar'];
   }
@@ -30,10 +33,11 @@ function listarProdutos() {
   $conn->close();
   return $produtos;
 }
+// função que adiciona produto
 function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
-  include('dbconfig.php');
+  include('../MODAL/dbconfig.php');
   $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
-   // $conexao = obterConexao();
+   
     $nome = mysqli_real_escape_string($conexao, $nome);
     $preco = mysqli_real_escape_string($conexao, $preco);
     $imagem = mysqli_real_escape_string($conexao, $imagem);
@@ -47,14 +51,14 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
   
     return $resultado;
   }
-  
+  // função que fecha a porta de conexão ao BD
   function fecharConexao($conexao) {
-    require_once('dbconfig.php');
+    require_once('../MODAL/dbconfig.php');
     $conexao->close();
 }
-
+// função que analisa o status do link com o bd
   function obterConexao() {
-     include('dbconfig.php');
+     include('../MODAL/dbconfig.php');
      $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
     if ($conexao->connect_error){
       die("falha na comexão: ".$conexao->connect_error);}
@@ -67,7 +71,7 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
   
 
 function localizarProdutos2() {
-  include('dbconfig.php');
+  include('../MODAL/dbconfig.php');
   
   
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -93,16 +97,16 @@ function localizarProdutos2() {
 }
 
 function deletarProduto($id) {
-  include('dbconfig.php');
+  include('../MODAL/dbconfig.php');
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   $id = mysqli_real_escape_string($conn, $id);
   $query = "DELETE FROM PRODUTOS WHERE id = '$id'";
   mysqli_query($conn, $query);
   mysqli_close($conn);
 }
-
+// função que atualiza os produtos 
 function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) { 
-  include('dbconfig.php');
+  include('../MODAL/dbconfig.php');
   $ArrayProdutos=listarProdutos();
   $conexao  = new mysqli($servidor, $usuario, $senha, $bancodedados);
     $id         = mysqli_real_escape_string($conexao, $id); 
@@ -112,7 +116,7 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) 
     $quantidade = mysqli_real_escape_string($conexao, $quantidade);
     $codbarras = mysqli_real_escape_string($conexao, $codbarras);
 
-    $query = "UPDATE PRODUTOS SET nome='$nome', preco='$preco', imagem='$imagem', quantidade='$quantidade', codbrras='$codbarras' WHERE id=$id";
+    $query = "UPDATE PRODUTOS SET nome='$nome', preco='$preco', imagem='$imagem', quantidade='$quantidade', codbarras='$codbarras' WHERE id=$id";
     $resultado = $conexao->query($query);
   
     $conexao->close();
@@ -121,17 +125,12 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) 
   }
   
   function ultimoCodigo(){
-    include('dbconfig.php');
+    include('../MODAL/dbconfig.php');
     $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
     $query = "SELECT MAX(CODIGO) FROM PRODUTOS";
     $resultado = $conexao->query($query);
     return $resultado;
   }
 
-  function verificacao($path)
-  {
-    if (!$SESSION['id']){
-       header('Location:'.$path); 
-    }
-  }
+  
 ?>

@@ -1,6 +1,6 @@
 <?php
-require('functions.php');
-require_once('dbconfig.php');
+require('../CONTROLLER/functions.php');
+require_once('../MODAL/dbconfig.php');
 
 //FUNÇÃO OBRIGATÓRA PARA O BOTÃO LOCALIZAR
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-//$nomeProduto = ($_POST["buscar"]);
+
 ?>
 <!-- add bootstrap -->
 <!DOCTYPE html>
@@ -52,11 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administração</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="./img/icons/icon-adm.png">
+    <link rel="stylesheet" type="text/css" href="../VIEW/CSS/style.css">
+    <link rel="icon" href="../VIEW/img/icons/icon-adm.png">
   </head> 
 <!-- Formulário para adicionar um produto -->
-<body class="view" action="admin.php">
+<body class="view" action="../CONTROLLER/admin.php">
   <div class="container d-flex flex-column justify-content-center align-items-center mt-5 mb-5 border-bottom border-primary">
   <form method="POST"  class="d-flex flex-column w-50 mb-5">
     <h2 class="font-weight-bold text-center">Adição de Produtos</h2>
@@ -68,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" name="codbarras" id="codigoDeBarras" placeholder="Codigo de Barras">
     <button type="button" id="gerarCodigoBtn" class="btn btn-primary">Gerar Codigo</button>
     
-    <button type="submit" class="btn btn-primary" action="admin.php">Adicionar</button>
+    <button type="submit" class="btn btn-primary" action="../CONTROLLER/admin.php">Adicionar</button>
+    <!--Função em JS para gerar um codigo de barras aleatório -->
     <script type="module">
       function GerarCodigo(){
         let cod = 7891020301;
@@ -91,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
 
  <!-- Botão busca de produtos -->
- <form method="POST" action="admin.php">
+ <form method="POST" action="../CONTROLLER/admin.php">
 <div class="container ">
   <div class="input-group d-flex align-items-center justify-content-center mb-3">
     
@@ -103,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <? 
         // Recuperar o termo de pesquisa
-        
+        //variável global
           global  $localizarProduto ;
           
         
@@ -129,17 +130,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </thead>
   <tbody>
     <?php 
-   
+   //puxando a lista da variável
     foreach ($produtos as $produto): ?>
     <tr>
       <td><?= $produto['id'] ?></td>
       <td><?= $produto['nome'] ?></td>
       <td><?= $produto['codbarras'] ?></td>
       <td><?= $produto['preco'] ?></td>
-      <td ><img src="<?= $produto['imagem'] ?>" alt="" style="max-width: 450px; max-height: 150px;"></td>
+      <td ><?echo'<img src="'.'../VIEW/'.$produto['imagem'].'" alt="'.'" style="max-width: 450px; max-height: 150px;">'?></td>
       <td><?= $produto['quantidade'] ?></td>
       <td>
-        <form method="post" class="d-flex flex-column w-100">
+        <!--area de atualização -->
+        <form method="post" action="" class="d-flex flex-column w-100">
           <input type="hidden" name="acao" value="atualizar">
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">
           <input type="text" name="nome" placeholder="Novo nome">
@@ -149,8 +151,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           <input type="hidden" name="imagem" value="<?= $produto['imagem'] ?>">
           <input type="hidden" name="nquantidade" value="<?= $produto['quantidade'] ?>">
-          <button type="submit" class="btn btn-success">Atualizar</button>
+          <input type="text" name="codbarras" id="codigoDeBarras" placeholder="Codigo de Barras">
+          
+    
+          <button type="submit" class="btn btn-success" >Atualizar</button>
         </form>
+       <script>
+        //Esse JS serve para evitar o famoso "REENVIO DE FORMULÁRIO", ELE LIMPA TODAS AS INFORMAÇÕES DA PAGINA
+        if (window.history.replaceState) {
+          console.log("evitando reenvio")
+          window.history.replaceState(null, null, window.location.href)
+
+        }
+
+       </script>
+       <!--area do delete -->
         <form method="post" class="d-flex flex-column w-100">
           <input type="hidden" name="acao" value="deletar">
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">
@@ -162,6 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </tbody>
 </table>
 </div>
+<!--Rodapé da página -->
 <footer class="d-flex flex-row justify-content-evenly">
 		<div>
       <span class="fw-bold">&copy; 2023 Minha Loja de Alimentos</span><br>

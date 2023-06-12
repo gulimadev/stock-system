@@ -237,3 +237,74 @@ form {
     padding: 5px 10px; /* Ajuste o espaçamento interno do botão */
     font-size: 7px; /* Ajuste o tamanho da fonte do botão */
   }
+  /* area do carrossel*/
+  .carousel-img {
+    max-height: 400px; /* Defina a altura máxima desejada */
+    max-width: 300px; /* Ajusta automaticamente a largura proporcionalmente */
+    margin: 0 auto; /* Centraliza a imagem horizontalmente */
+  }
+  .carousel-item-wrapper {
+    position: relative;
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .carousel-control-prev {
+    left: 0;
+  }
+
+  .carousel-control-next {
+    right: 0;
+  }
+  .carousel-caption{
+    position: relative;
+  bottom: 0;
+  left: 0;
+  }
+  .carousel-caption h3,
+  .carousel-caption p
+  {
+    color: black;
+  }
+  .carousel-inner{
+
+    flex: 0 0 300px; /* Define o tamanho fixo para cada slide, por exemplo, 300px */
+  margin-right: 10px;
+  display: flex;
+  }
+  
+  .carousel-item-wrapper {
+    position: relative;
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    bottom: 50%;
+  }
+
+  .carousel-control-prev {
+    left:10%;
+  }
+
+  .carousel-control-next {
+    right: 10%;
+  }
+  .sr-only{
+    color: black;
+    font-size: 30px;
+    
+  }
+  .carousel-inner{
+    margin-top: 10px;
+    position: relative;
+  width: 100%;
+  height: 500px;
+  }

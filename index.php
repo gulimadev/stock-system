@@ -106,7 +106,7 @@
     <div class="carousel-item ">
       <img class="d-block w-100 carousel-img" src="./VIEW/img/professor3.JPG" alt="Slide 3">
       <div class="carousel-caption">
-        <h3>SARDINHA COQUEIRO R$ 5,59</h3>
+        <h3>PROFESSOR ZÉ PAULO</h3>
         <p>PROFESSOR ZÉ PAULO SABENDO QUE TODO MUNDO FEZ O PAPPER</p>
       </div>
     </div>

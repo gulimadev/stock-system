@@ -9,6 +9,25 @@
     <link rel="stylesheet" type="text/css" href="./VIEW/CSS/style.css">
     <link rel="icon" href="./img/icons/icone-loja.png">
 </head>
+<body>
+	<header>
+		<h1>Minha Loja de Alimentos</h1>
+		<nav class="navbar-nav">
+			<ul class="list-group-flush">
+				<li class="nav-item"><a class="dropdown-item" href="#">Produtos</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="#">Sobre Nós</a></li>
+				<li class="nav-item"><a class="dropdown-item" href="#">Contato</a></li>
+        <li class="nav-item"><a class="dropdown-item" href="#">Entrar</a> </li>
+                            
+                            <!--target="_blank" quer dizer abrir uma nova aba para p endereço q vc quer lincar -->
+                       
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+  <h2>Produtos em Destaque</h2>
+  <div class="row">
 <header >
 
 

@@ -9,25 +9,6 @@
     <link rel="stylesheet" type="text/css" href="./VIEW/CSS/style.css">
     <link rel="icon" href="./img/icons/icone-loja.png">
 </head>
-<body>
-	<header>
-		<h1>Minha Loja de Alimentos</h1>
-		<nav class="navbar-nav">
-			<ul class="list-group-flush">
-				<li class="nav-item"><a class="dropdown-item" href="#">Produtos</a></li>
-				<li class="nav-item"><a class="dropdown-item" href="#">Sobre Nós</a></li>
-				<li class="nav-item"><a class="dropdown-item" href="#">Contato</a></li>
-        <li class="nav-item"><a class="dropdown-item" href="#">Entrar</a> </li>
-                            
-                            <!--target="_blank" quer dizer abrir uma nova aba para p endereço q vc quer lincar -->
-                       
-			</ul>
-		</nav>
-	</header>
-
-	<main>
-  <h2>Produtos em Destaque</h2>
-  <div class="row">
 <header >
 
 
@@ -125,7 +106,7 @@
     <div class="carousel-item ">
       <img class="d-block w-100 carousel-img" src="./VIEW/img/professor3.JPG" alt="Slide 3">
       <div class="carousel-caption">
-        <h3>PROFESSOR ZÉ PAULO</h3>
+        <h3>SARDINHA COQUEIRO R$ 5,59</h3>
         <p>PROFESSOR ZÉ PAULO SABENDO QUE TODO MUNDO FEZ O PAPPER</p>
       </div>
     </div>

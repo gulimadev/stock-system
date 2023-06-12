@@ -44,7 +44,7 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
     $quantidade = mysqli_real_escape_string($conexao, $quantidade);
     $codbarras = mysqli_real_escape_string($conexao, $codbarras);
 
-    $query = "INSERT INTO PRODUTOS (nome, preco, imagem, quantidade, codbarras) VALUES ('$nome', '$preco',CONCAT( 'img/','$imagem'), '$quantidade', '$codbarras')";
+    $query = "INSERT INTO PRODUTOS (nome, preco, imagem, quantidade, codbarras) VALUES ('$nome', '$preco',CONCAT( '../VIEW/img/','$imagem'), '$quantidade', '$codbarras')";
     $resultado = mysqli_query($conexao, $query);
   
     $conexao->close();

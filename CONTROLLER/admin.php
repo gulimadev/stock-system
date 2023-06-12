@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <td><?= $produto['nome'] ?></td>
       <td><?= $produto['codbarras'] ?></td>
       <td><?= $produto['preco'] ?></td>
-      <td ><?echo'<img src="'.'../VIEW/'.$produto['imagem'].'" alt="'.'" style="max-width: 450px; max-height: 150px;">'?></td>
+      <td ><?echo'<img src="'.$produto['imagem'].'" alt="'.'" style="max-width: 450px; max-height: 150px;">'?></td>
       <td><?= $produto['quantidade'] ?></td>
       <td>
         <!--area de atualização -->

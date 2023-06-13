@@ -52,8 +52,6 @@
 <!-- ... Código do carrossel ... -->
 
 
-		
-<!---->
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -115,11 +113,15 @@
   <!-- Botões de navegação -->
   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Anterior</span>
+    <span class="sr-only">
+      <ion-icon name="arrow-back-circle-outline" class="fs-1 fw-bold text-primary"></ion-icon>
+    </span>
   </a>
   <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Próximo</span>
+    <span class="sr-only">
+      <ion-icon name="arrow-forward-circle-outline" class="fs-1 fw-bold text-primary"></ion-icon>
+    </span>
   </a>
 </div>
   

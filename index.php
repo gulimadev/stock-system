@@ -67,7 +67,7 @@
   
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100 carousel-img" src="./VIEW/img/feijão.JPG" alt="Slide 1">
+      <img class="d-block w-100 carousel-img" src="./VIEW/img/feijão-2.JPG" alt="Slide 1">
       <div class="carousel-caption">
         <h3>FEIJÃO URBANO PRETINHO SÓ R$8,99</h3>
         <p>FAÇA à SUA MELHOR FEIJOADA COM O FEIJÃO AFRO DESCENDENTE PRETINHO</p>
@@ -134,7 +134,7 @@
   <br>
   <br>
   
-  <form method="POST" action="index.php">
+<form method="POST" action="index.php">
 <div class="container ">
   <div class="input-group d-flex align-items-center justify-content-center mb-3">
     
@@ -187,6 +187,7 @@
       mysqli_close($conexao);
     ?>
   </div>
+</div>
 </main>
 
 

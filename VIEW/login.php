@@ -29,7 +29,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Se o usuário ou senha estiver incorreto, mostra uma mensagem de erro
         $mensagem = "Usuário ou senha incorretos.";
     }
- 
     $conn->close();
 }
 ?>

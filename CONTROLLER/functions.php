@@ -1,15 +1,15 @@
 <?php
-//
 require_once('../MODAL/dbconfig.php');
 //variável global extraida da página
 global $localizarProduto;
+
 // função que lista produtos
 function listarProdutos() {
   include('../MODAL/dbconfig.php');
   if (isset($_POST['Pesquisar'])) {
     $localizarProduto = $_POST['Pesquisar'];
   }
-  
+
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conn->connect_error){
     die("falha na comexão: ".$conn->connect_error);}else {
@@ -21,19 +21,17 @@ function listarProdutos() {
   }else {
     $sql = "SELECT * FROM PRODUTOS  WHERE (nome LIKE '%".$localizarProduto."%')";
   }
-   
+
   $result = $conn->query($sql);
   $produtos = array();
   while ($row = mysqli_fetch_assoc($result)) {
-   
       $produtos[] = $row;
-    
-   
   }
   $conn->close();
   return $produtos;
 }
-// função que adiciona produto
+
+// função que adiciona produtos
 function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
   include('../MODAL/dbconfig.php');
   $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -48,32 +46,12 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
     $resultado = mysqli_query($conexao, $query);
   
     $conexao->close();
-  
     return $resultado;
   }
-  // função que fecha a porta de conexão ao BD
-  function fecharConexao($conexao) {
-    require_once('../MODAL/dbconfig.php');
-    $conexao->close();
-}
-// função que analisa o status do link com o bd
-  function obterConexao() {
-     include('../MODAL/dbconfig.php');
-     $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
-    if ($conexao->connect_error){
-      die("falha na comexão: ".$conexao->connect_error);}
-    else {
-    
-    }
-    $conexao->close();
-    return $conexao;
-  }
   
-
+// função que busca produtos
 function localizarProdutos2() {
   include('../MODAL/dbconfig.php');
-  
-  
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conn->connect_error){
     die("falha na comexão: ".$conn->connect_error);}else {
@@ -84,18 +62,14 @@ function localizarProdutos2() {
   $result = $conn->query($sql);
   $Lprodutos = array();
 
-
-
   while ($row = mysqli_fetch_assoc($result)) {
-   
       $Lprodutos[] = $row;
-    
-   
   }
   $conn->close();
   return $Lprodutos;
 }
 
+// função que deleta produtos
 function deletarProduto($id) {
   include('../MODAL/dbconfig.php');
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -118,19 +92,34 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) 
 
     $query = "UPDATE PRODUTOS SET nome='$nome', preco='$preco', imagem='$imagem', quantidade='$quantidade', codbarras='$codbarras' WHERE id=$id";
     $resultado = $conexao->query($query);
-  
     $conexao->close();
-  
-    return $resultado;
-  }
-  
-  function ultimoCodigo(){
-    include('../MODAL/dbconfig.php');
-    $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
-    $query = "SELECT MAX(CODIGO) FROM PRODUTOS";
-    $resultado = $conexao->query($query);
     return $resultado;
   }
 
-  
+//    
+function ultimoCodigo(){
+  include('../MODAL/dbconfig.php');
+  $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
+  $query = "SELECT MAX(CODIGO) FROM PRODUTOS";
+  $resultado = $conexao->query($query);
+  return $resultado;
+} 
+
+// função que analisa o status do link com o banco de dados
+function obterConexao() {
+ include('../MODAL/dbconfig.php');
+ $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
+if ($conexao->connect_error){
+  die("falha na comexão: ".$conexao->connect_error);}
+else {
+}
+$conexao->close();
+return $conexao;
+}
+
+// função que fecha a porta de conexão ao banco de dados
+function fecharConexao($conexao) {
+  require_once('../MODAL/dbconfig.php');
+  $conexao->close();
+}
 ?>

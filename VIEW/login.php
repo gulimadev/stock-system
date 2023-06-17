@@ -1,23 +1,16 @@
 <?php
 include('../MODAL/dbconfig.php');
 
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
- 
     $user = $_POST['username'];
     $pass = $_POST['password'];
  
     // Conexão com o banco de dados
-     
- 
- 
-
- 
     $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
-//    mysql_query("SET NAMES 'utf8'");
-//    mysql_query('SET character_set_connection=utf8');
-//    mysql_query('SET character_set_client=utf8');
-//    mysql_query('SET character_set_results=utf8');
+    // mysql_query("SET NAMES 'utf8'");
+    // mysql_query('SET character_set_connection=utf8');
+    // mysql_query('SET character_set_client=utf8');
+    // mysql_query('SET character_set_results=utf8');
     
     // Verifica se a conexão foi bem sucedida
     if ($conn->connect_error) {
@@ -39,14 +32,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  
     $conn->close();
 }
-
 ?>
  
 <!DOCTYPE html>
-
-<html>
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tela de Login</title>
@@ -55,6 +46,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="icon" href="./img/icons/icone-chave.png">
 </head>
 <body class="view marketing">
+
+    <!-- Area de login -->
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
         <div class="login-form w-25">
             <h2>Tela de Login</h2>
@@ -75,6 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Importando o JavaScript do Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -110,7 +110,7 @@ $produtos = listarProdutos();
   </thead>
   <tbody>
     <?php 
-    //puxando a lista da variável
+    //Puxando a lista da variável
     foreach ($produtos as $produto): ?>
     <tr>
       <td><?= $produto['id'] ?></td>
@@ -120,7 +120,7 @@ $produtos = listarProdutos();
       <td ><?echo'<img src="'.$produto['imagem'].'" alt="'.'" style="max-width: 450px; max-height: 150px;">'?></td>
       <td><?= $produto['quantidade'] ?></td>
       <td>
-        <!--area de atualização -->
+        <!--Área de atualização -->
         <form method="post" action="" class="d-flex flex-column w-100">
           <input type="hidden" name="acao" value="atualizar">
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">
@@ -140,7 +140,7 @@ $produtos = listarProdutos();
         }
        </script>
 
-       <!--area do delete -->
+       <!--Área do delete -->
         <form method="post" class="d-flex flex-column w-100">
           <input type="hidden" name="acao" value="deletar">
           <input type="hidden" name="id" value="<?= $produto['id'] ?>">

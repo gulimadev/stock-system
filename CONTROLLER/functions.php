@@ -1,9 +1,9 @@
 <?php
 require_once('../MODAL/dbconfig.php');
-//variável global extraida da página
+//Variável global extraida da página
 global $localizarProduto;
 
-// função que lista produtos
+// Função que lista produtos
 function listarProdutos() {
   include('../MODAL/dbconfig.php');
   if (isset($_POST['Pesquisar'])) {
@@ -12,9 +12,9 @@ function listarProdutos() {
 
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conn->connect_error){
-    die("falha na comexão: ".$conn->connect_error);}else {
-      # code...
-    }
+    die("falha na comexão: ".$conn->connect_error);
+  } else {
+  }
 
   if (empty($_POST['Pesquisar']) ) {
     $sql = "SELECT * FROM PRODUTOS";
@@ -31,7 +31,7 @@ function listarProdutos() {
   return $produtos;
 }
 
-// função que adiciona produtos
+// Função que adiciona produtos
 function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
   include('../MODAL/dbconfig.php');
   $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -49,14 +49,14 @@ function adicionarProduto($nome, $preco, $imagem, $quantidade, $codbarras) {
     return $resultado;
   }
   
-// função que busca produtos
+// Função que busca produtos
 function localizarProdutos2() {
   include('../MODAL/dbconfig.php');
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conn->connect_error){
-    die("falha na comexão: ".$conn->connect_error);}else {
-      # code...
-    }
+    die("falha na comexão: ".$conn->connect_error);
+  } else {
+  }
   $sql = "SELECT PRO.nome FROM PRODUTOS PRO WHERE (PRO.nome =$localizarProduto)";
   $sqlLocalizar="SELECT * FROM PRODUTOS";
   $result = $conn->query($sql);
@@ -69,7 +69,7 @@ function localizarProdutos2() {
   return $Lprodutos;
 }
 
-// função que deleta produtos
+// Função que deleta produtos
 function deletarProduto($id) {
   include('../MODAL/dbconfig.php');
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -78,7 +78,7 @@ function deletarProduto($id) {
   mysqli_query($conn, $query);
   mysqli_close($conn);
 }
-// função que atualiza os produtos 
+// Função que atualiza os produtos 
 function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) { 
   include('../MODAL/dbconfig.php');
   $ArrayProdutos=listarProdutos();
@@ -96,7 +96,7 @@ function atualizarProduto($id, $nome, $preco, $imagem, $quantidade, $codbarras) 
     return $resultado;
   }
 
-//    
+// Função que seleciona produtos pelo codigo de barras
 function ultimoCodigo(){
   include('../MODAL/dbconfig.php');
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -105,7 +105,7 @@ function ultimoCodigo(){
   return $resultado;
 } 
 
-// função que analisa o status do link com o banco de dados
+// Função que analisa o status do link com o banco de dados
 function obterConexao() {
  include('../MODAL/dbconfig.php');
  $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
@@ -117,7 +117,7 @@ $conexao->close();
 return $conexao;
 }
 
-// função que fecha a porta de conexão ao banco de dados
+// Função que fecha a porta de conexão ao banco de dados
 function fecharConexao($conexao) {
   require_once('../MODAL/dbconfig.php');
   $conexao->close();

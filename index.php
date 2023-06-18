@@ -15,16 +15,16 @@
   <nav class="navbar bg-primary">
       <div class="container">
         <div class="navbar-header">
-		      <a href="#" class="navbar-brand text-white">MINHA LOJA DE ALIMENTOS</a>
+		      <a href="#" class="navbar-brand text-white">MERCADO SOCORRO BEM PRESENTE</a>
         </div>
         <div>
         <ul class="flex-row justify-content-between align-items-center  nav navbar">
-          <li class="nav-item "> <a href="#" class="btn btn-outline-light">PRODUTOS</a> </li>
-          <li class="nav-item"> <a href="#" class="btn btn-outline-light">QUEM SOMOS</a> </li>
-          <li class="nav-item"> <a href="#" class="btn btn-outline-light">CONTATOS</a> </li>
+          <li class="nav-item"><a href="#" class="btn btn-outline-light">PRODUTOS</a> </li>
+          <li class="nav-item"><a href="#" class="btn btn-outline-light">QUEM SOMOS</a> </li>
+          <li class="nav-item"><a href="#" class="btn btn-outline-light">CONTATOS</a> </li>
           <li class="nav-item"><a href="./VIEW/login.php" target="_blank" class="btn btn-outline-light">ENTRAR</a></li>
           <li class="nav-item"><a href="#" class="text-white fw-bold fs-4">
-            <ion-icon name="cart-outline" class="cart-blue"></ion-icon>  
+            <ion-icon name="cart-outline" class="cart-blue ms-3 px-1"></ion-icon>  
           </a></li>
         </ul>
         </div>
@@ -46,21 +46,21 @@
       <img class="d-block w-100 carousel-img" src="./VIEW/img/feijão-2.JPG" alt="Slide 1">
       <div class="carousel-caption">
         <h3>FEIJÃO URBANO PRETINHO SÓ R$8,99</h3>
-        <p>FAÇA à SUA MELHOR FEIJOADA COM O FEIJÃO AFRO DESCENDENTE PRETINHO</p>
+        <p>FAÇA à SUA MELHOR FEIJOADA COM O FEIJÃO DO POVÃO</p>
       </div>
     </div>
     <div class="carousel-item ">
       <img class="d-block w-100 carousel-img" src="./VIEW/img/arroz.JPG" alt="Slide 2">
       <div class="carousel-caption">
-        <h3>ARROZ TIO JÕAO R$ 6,99</h3>
+        <h3>ARROZ TIO JÕAO R$6,99</h3>
         <p>ARROZ TIO JOÃO MELHOR PREÇO DA PRAÇA</p>
       </div>
     </div>
     <div class="carousel-item ">
       <img class="d-block w-100 carousel-img" src="./VIEW/img/sardinha.png" alt="Slide 3">
       <div class="carousel-caption">
-        <h3>SARDINHA COQUEIRO R$ 5,59</h3>
-        <p>CAVIAR DE POBRE É AQUI CUIDA!!</p>
+        <h3>SARDINHA COQUEIRO R$5,59</h3>
+        <p>CAVIAR DE POBRE É AQUI, CUIDA!!</p>
       </div>
     </div>
     <div class="carousel-item ">
@@ -100,19 +100,10 @@
     </span>
   </a>
 </div>
-  
-  </div>
-  
-</div>
-</form>
-        
-  </div>
-  <br>
-  <br>
 
 <!-- Campo de busca -->
 <form method="POST" action="index.php">
-<div class="container ">
+<div class="container mt-5">
   <div class="input-group d-flex align-items-center justify-content-center mb-3">
     <div class="search-container d-flex align-items-center justify-content-center">
     <input type="hidden" name="acao" value="localizar">  
@@ -126,12 +117,12 @@
 
 <br>
 
-<!-- area de produtos -->
+<!-- Área de produtos -->
 <main class="container w-100">
   <h2 class="pt-3">PRODUTOS EM DESTAQUE:</h2>
   <div class="row justify-content-center">
     <?php
-    //consulta se a variávels está vazia, se não ele cria ela
+    // Consulta se a variávels está vazia, se não ele cria ela
     if (isset($_POST['Pesquisar'])) {
       $localizarProduto = $_POST['Pesquisar'];
     }
@@ -166,7 +157,7 @@
 </div>
 </main>
 
-<!-- rodapé do site -->
+<!-- Rodapé do site -->
 <footer class="bg-primary d-flex flex-row justify-content-evenly">
     <div>
       <span class="text-white fw-bold">&copy; 2023 Minha Loja de Alimentos</span><br>
@@ -184,7 +175,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <!-- Importando o JavaScript do Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<!-- icones externos do ionicons -->
+<!-- Icones externos do ionicons -->
 <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
 <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
 </body>

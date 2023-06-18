@@ -7,10 +7,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  
     // Conexão com o banco de dados
     $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
-    // mysql_query("SET NAMES 'utf8'");
-    // mysql_query('SET character_set_connection=utf8');
-    // mysql_query('SET character_set_client=utf8');
-    // mysql_query('SET character_set_results=utf8');
     
     // Verifica se a conexão foi bem sucedida
     if ($conn->connect_error) {
@@ -49,13 +45,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Area de login -->
     <div class="container h-100 d-flex flex-column justify-content-center align-items-center">
         <div class="login-form w-25">
-            <h2>Tela de Login</h2>
+            <h2 class="text-center fw-bold px-1">Tela de Login</h2>
             <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <div class="form-group">
+                <div class="mb-3">
                     <label class="col-form-label">Nome de Usuário:</label>
                     <input class="form-control" type="text" name="username" required>
                 </div>    
-                <div class="form-group">
+                <div class="mb-3">
                     <label class="col-form-label">Senha:</label>
                     <input class="form-control" type="password" name="password" required>
                 </div>

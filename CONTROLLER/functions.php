@@ -77,7 +77,7 @@ function localizarProdutos2() {
   $conn = new mysqli($servidor, $usuario, $senha, $bancodedados);
   if ($conn->connect_error){
     die("falha na comexão: ".$conn->connect_error);}else {
-      # code...
+      
     }
   $sql = "SELECT PRO.nome FROM PRODUTOS PRO WHERE (PRO.nome =$localizarProduto)";
   $sqlLocalizar="SELECT * FROM PRODUTOS";

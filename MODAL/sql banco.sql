@@ -5,7 +5,6 @@ CREATE TABLE `PRODUTOS` (
   `estoque` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-
 ALTER TABLE `PRODUTOS`
   ADD PRIMARY KEY (`id`);
 COMMIT;

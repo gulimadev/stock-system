@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,55 +9,31 @@
     <link rel="stylesheet" type="text/css" href="./VIEW/CSS/style.css">
     <link rel="icon" href="./img/icons/icone-loja.png">
 </head>
+<body class="view">
 <header >
-
-
-
-
-
-
-
-
- 
-
   <!-- Barra navegação-->
   <nav class="navbar bg-primary">
       <div class="container">
-        
         <div class="navbar-header">
-		      <a href="#" class="navbar-brand text-white">MINHA LOJA DE ALIMENTOS</a>
+		      <a href="#" class="navbar-brand text-white">MERCADO SOCORRO BEM PRESENTE</a>
         </div>
-
         <div>
         <ul class="flex-row justify-content-between align-items-center  nav navbar">
-          <li class="nav-item "> <a href="#" class="btn btn-outline-light">PRODUTOS</a> </li>
-          <li class="nav-item"> <a href="#" class="btn btn-outline-light">QUEM SOMOS</a> </li>
-          <li class="nav-item"> <a href="#" class="btn btn-outline-light">CONTATOS</a> </li>
+          <li class="nav-item"><a href="#" class="btn btn-outline-light">PRODUTOS</a> </li>
+          <li class="nav-item"><a href="#" class="btn btn-outline-light">QUEM SOMOS</a> </li>
+          <li class="nav-item"><a href="#" class="btn btn-outline-light">CONTATOS</a> </li>
           <li class="nav-item"><a href="./VIEW/login.php" target="_blank" class="btn btn-outline-light">ENTRAR</a></li>
           <li class="nav-item"><a href="#" class="text-white fw-bold fs-4">
-          
-            <ion-icon name="cart-outline" class="cart-blue"></ion-icon>  
+            <ion-icon name="cart-outline" class="cart-blue ms-3 px-1"></ion-icon>  
           </a></li>
         </ul>
         </div>
-      
-		
       </div>
     </nav>
-    
 </header>
-<body class="view">
 
-
-<!-- ... Código do carrossel ... -->
-
-
-		
-<!---->
-
+<!--  Código do carrossel -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-  
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -65,28 +41,26 @@
     <li data-target="#myCarousel" data-slide-to="3"></li>
     <li data-target="#myCarousel" data-slide-to="4"></li>
   </ol>
-
-  
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100 carousel-img" src="./VIEW/img/feijão.JPG" alt="Slide 1">
+      <img class="d-block w-100 carousel-img" src="./VIEW/img/feijão-2.JPG" alt="Slide 1">
       <div class="carousel-caption">
         <h3>FEIJÃO URBANO PRETINHO SÓ R$8,99</h3>
-        <p>FAÇA à SUA MELHOR FEIJOADA COM O FEIJÃO AFRO DESCENDENTE PRETINHO</p>
+        <p>FAÇA à SUA MELHOR FEIJOADA COM O FEIJÃO DO POVÃO</p>
       </div>
     </div>
     <div class="carousel-item ">
       <img class="d-block w-100 carousel-img" src="./VIEW/img/arroz.JPG" alt="Slide 2">
       <div class="carousel-caption">
-        <h3>ARROZ TIO JÕAO R$ 6,99</h3>
+        <h3>ARROZ TIO JÕAO R$6,99</h3>
         <p>ARROZ TIO JOÃO MELHOR PREÇO DA PRAÇA</p>
       </div>
     </div>
     <div class="carousel-item ">
       <img class="d-block w-100 carousel-img" src="./VIEW/img/sardinha.png" alt="Slide 3">
       <div class="carousel-caption">
-        <h3>SARDINHA COQUEIRO R$ 5,59</h3>
-        <p>CAVIAR DE POBRE É AQUI CUIDA!!</p>
+        <h3>SARDINHA COQUEIRO R$5,59</h3>
+        <p>CAVIAR DE POBRE É AQUI, CUIDA!!</p>
       </div>
     </div>
     <div class="carousel-item ">
@@ -115,44 +89,40 @@
   <!-- Botões de navegação -->
   <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Anterior</span>
+    <span class="sr-only">
+      <ion-icon name="arrow-back-circle-outline" class="fs-1 fw-bold text-primary"></ion-icon>
+    </span>
   </a>
   <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Próximo</span>
+    <span class="sr-only">
+      <ion-icon name="arrow-forward-circle-outline" class="fs-1 fw-bold text-primary"></ion-icon>
+    </span>
   </a>
 </div>
-  
-  </div>
-  
-</div>
-</form>
-        
-  </div>
-  <br>
-  <br>
-  
-  <form method="POST" action="index.php">
-<div class="container ">
+
+<!-- Campo de busca -->
+<form method="POST" action="index.php">
+<div class="container mt-5">
   <div class="input-group d-flex align-items-center justify-content-center mb-3">
-    
     <div class="search-container d-flex align-items-center justify-content-center">
     <input type="hidden" name="acao" value="localizar">  
         <input  type="text" class="form-control form-control-lg col-1 " name="Pesquisar" id="campo-busca" placeholder="Digite o que deseja buscar...">
         <div class="input-group-append"> 
           <button type="submit" class="btn btn-primary rounded" name="Buscar" id="buscar">Buscar</button>
-        </div>
-        
+        </div>    
   </div>
 </div>
 </form>
+
 <br>
+
+<!-- Área de produtos -->
 <main class="container w-100">
   <h2 class="pt-3">PRODUTOS EM DESTAQUE:</h2>
-  
   <div class="row justify-content-center">
     <?php
-    //consulta se a variávels está vazia, se não ele cria ela
+    // Consulta se a variávels está vazia, se não ele cria ela
     if (isset($_POST['Pesquisar'])) {
       $localizarProduto = $_POST['Pesquisar'];
     }
@@ -166,7 +136,6 @@
       }else {
         $sql = "SELECT * FROM PRODUTOS  WHERE (nome LIKE '%".$localizarProduto."%')";
       }
-      
       $resultado = mysqli_query($conexao, $sql);
 
       // Loop para exibir as informações de cada produto
@@ -185,9 +154,10 @@
       mysqli_close($conexao);
     ?>
   </div>
+</div>
 </main>
 
-
+<!-- Rodapé do site -->
 <footer class="bg-primary d-flex flex-row justify-content-evenly">
     <div>
       <span class="text-white fw-bold">&copy; 2023 Minha Loja de Alimentos</span><br>
@@ -199,17 +169,14 @@
     </div>
 </footer>
 
-  <!-- Importando o JavaScript do jQuery -->
+<!-- Importando o JavaScript do jQuery -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
 <!-- Importando o JavaScript do Popper.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
 <!-- Importando o JavaScript do Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-      <!-- icones externos do ionicons -->
-  <script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
-  <script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
+<!-- Icones externos do ionicons -->
+<script  type = "module"  src = "https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" > </script> 
+<script  nomodule  src = "https://unpkg .com/ionicons@7.1.0/dist/ionicons/ionicons.js" > </script>
 </body>
 </html>
